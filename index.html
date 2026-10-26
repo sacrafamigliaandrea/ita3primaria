@@ -70,9 +70,11 @@ h1,h2,h3{font-weight:inherit}
 @keyframes galleggia{0%,100%{transform:translateY(0)}50%{transform:translateY(-6px)}}
 @keyframes scuoti{20%,60%{transform:translateX(-6px)}40%,80%{transform:translateX(6px)}}
 
-/* testo a ritmo di lettura: una parola alla volta, la parola di adesso in grassetto e ingrandita */
-.ritmo .w{display:inline-block;opacity:.28;transition:opacity .2s,transform .22s cubic-bezier(.3,1.4,.5,1),color .2s;transform-origin:50% 75%}
-.ritmo .w.ora{opacity:1;transform:scale(1.22);color:var(--blu);-webkit-text-stroke:.03em currentColor}
+/* testo a ritmo di lettura: tutto il testo è leggibile subito (chi legge veloce non aspetta);
+   la parola di adesso, in grassetto e ingrandita, accompagna chi ne ha bisogno */
+.ritmo .w{display:inline-block;padding:0 .07em;transition:transform .22s cubic-bezier(.3,1.4,.5,1),color .2s;transform-origin:50% 75%}
+.ritmo .w.pt{padding-left:0}
+.ritmo .w.ora{opacity:1;transform:scale(1.16);color:var(--blu);-webkit-text-stroke:.03em currentColor}
 .ritmo .w.letta,.ritmo.letto .w{opacity:1}
 
 /* il tasto INVIO del Mac (a L, con la freccia): compare grande quando bisogna premerlo per andare avanti */
@@ -417,23 +419,11 @@ h1,h2,h3{font-weight:inherit}
 .avanti-g{position:absolute;right:0;bottom:2vh;display:none;align-items:center;gap:.6vw;padding:1.2vh 1.1vw;border-radius:14px;background:var(--blu);color:#fff;font:700 clamp(15px,1.02vw,19px)/1 var(--f);box-shadow:0 10px 22px -10px rgba(18,62,144,.7)}
 .avanti-g.on{display:flex}
 .avanti-g svg{width:1.15em;height:1.15em}
-.salta-g{position:absolute;left:0;bottom:2vh;display:none;align-items:center;gap:.5vw;padding:.8vh .8vw;border-radius:12px;border:1px solid var(--filo);background:var(--sup);color:var(--testo2);font:700 clamp(12px,.8vw,15px)/1 var(--f);letter-spacing:.06em;text-transform:uppercase}
-.salta-g.on{display:flex}
-.salta-g svg{width:1.05em;height:1.05em}
-.salta-g .cap{font-size:.85em}
 
 /* ---------- ALLENAMENTO 0: i segni sulla tastiera del Mac ---------- */
 #tastiera{grid-template-columns:minmax(0,1fr) clamp(360px,27vw,540px);grid-template-rows:auto minmax(0,1fr)}
 .t-stage{position:relative;display:grid;grid-template-rows:minmax(0,1fr) auto;gap:2vh;padding:2.2vh 1.6vw 2.4vh 2vw;min-width:0;min-height:0}
 .t-alto{position:relative;min-height:0;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:2vh;padding:2.2vh 2vw;border-radius:18px;background:var(--sup);border:1px solid var(--filo);box-shadow:var(--ombra);overflow:auto}
-.t-elenco{display:grid;grid-template-columns:repeat(8,minmax(0,1fr));gap:10px;width:100%}
-.t-voce{display:flex;flex-direction:column;align-items:center;gap:.9vh;padding:1.2vh .3vw 1.1vh;border-radius:14px;border:1px solid var(--filo2);background:var(--sup2);transition:transform .25s,background .25s,border-color .25s}
-.t-voce .tg{font:700 clamp(28px,2.3vw,44px)/1 var(--f);color:var(--blu)}
-.t-voce .tc{display:flex;align-items:center;gap:3px;flex-wrap:wrap;justify-content:center}
-.t-voce.ora{border-color:var(--blu);background:var(--blu-t);transform:translateY(-4px)}
-.t-voce.vista .tg{color:var(--verde)}
-.t-voce.extra{opacity:.8}
-.t-tit{align-self:flex-start;font:700 clamp(11px,.74vw,13px)/1 var(--f);letter-spacing:.14em;text-transform:uppercase;color:var(--testo3)}
 .k-mini{display:inline-grid;place-items:center;min-width:1.9em;height:1.9em;padding:0 .35em;border-radius:6px;background:#fff;border:1px solid var(--filo);box-shadow:0 2px 0 var(--filo);font:700 clamp(11px,.78vw,14px)/1 var(--f);color:var(--testo)}
 .k-mini.m{color:var(--blu);font-size:clamp(9px,.62vw,12px);letter-spacing:.04em}
 .t-piu{font:700 clamp(11px,.76vw,14px)/1 var(--f);color:var(--testo3)}
@@ -623,7 +613,7 @@ h1,h2,h3{font-weight:inherit}
    ===================================================================== */
 .strada,.carta,.gruppo,.foglio,.cesto,.pan,.t-alto{background:var(--pan);border-color:var(--filo);box-shadow:none}
 .strada:hover,.carta:hover{box-shadow:var(--ombra2)}
-.regola,.t-voce,.supera,.lez:hover{background:#fff}
+.regola,.supera,.lez:hover{background:#fff}
 .foglio-in::before{display:none}
 .regola::before{display:none}
 .regola{padding-left:1vw}
@@ -679,6 +669,16 @@ h1,h2,h3{font-weight:inherit}
 .voce-tog.on{background:var(--blu);border-color:var(--blu);color:#fff}
 .voce-tog.on b{background:#fff;color:var(--blu)}
 .voce-tog.assente{display:none}
+/* le due fasi dell'allenamento: INSIEME cornice tratteggiata, DA SOLO cornice piena */
+.fase-tag{position:absolute;left:calc(2vw + 16px);top:calc(2.2vh + 14px);z-index:3;display:inline-flex;align-items:center;gap:.6em;padding:.5em 1.1em .5em .75em;border-radius:22px;font:400 clamp(14px,.95vw,17px)/1 var(--f);pointer-events:none}
+.fase-tag:empty,#gioco[data-modo=sfida] .fase-tag{display:none}
+.fase-tag svg{width:1.55em;height:1.55em}
+.fase-tag b{font-weight:700;letter-spacing:.1em;text-transform:uppercase}
+.fase-tag.insieme{background:#fff;color:var(--blu);border:2px dashed var(--blu)}
+.fase-tag.solo{background:var(--blu);color:#fff;border:2px solid var(--blu)}
+#gioco[data-modo=allena][data-fase=insieme] .foglio,#tastiera[data-fase=insieme] .t-alto{border:2px dashed #8EA6D6}
+#gioco[data-modo=allena][data-fase=solo] .foglio,#tastiera[data-fase=solo] .t-alto{border:2px solid var(--blu)}
+#gioco[data-modo=allena][data-fase=solo] .foglio.fatta{border-color:var(--verde)}
 .hud .punti b{color:#fff}
 .hud .punti::after{font:700 clamp(11px,.74vw,13px)/1 var(--f);letter-spacing:.14em;text-transform:uppercase;color:rgba(255,255,255,.7)}
 </style>
@@ -744,6 +744,7 @@ h1,h2,h3{font-weight:inherit}
   </header>
   <main class="t-stage">
     <div class="t-alto" id="tAlto"></div>
+    <div class="fase-tag" id="tFaseTag"></div>
     <div class="mac" id="mac" aria-label="Tastiera del Mac"></div>
     <svg class="t-linee" id="tLinee" aria-hidden="true"></svg>
     <div class="ov" id="tOv"></div>
@@ -752,7 +753,7 @@ h1,h2,h3{font-weight:inherit}
     <div class="pan guida">
       <div class="regola" id="tRegola"></div>
       <div class="parla" id="tParla"></div>
-      <div class="guida-piede"><img class="guida-fig" id="tFig" alt=""><button class="avanti-g" id="tAvanti" tabindex="-1"></button><button class="salta-g" id="tSalta" tabindex="-1"></button></div>
+      <div class="guida-piede"><img class="guida-fig" id="tFig" alt=""><button class="avanti-g" id="tAvanti" tabindex="-1"></button></div>
     </div>
   </aside>
 </section>
@@ -773,6 +774,7 @@ h1,h2,h3{font-weight:inherit}
   </header>
   <main class="stage" id="stage">
     <div class="foglio" id="foglio"><div class="foglio-in" id="foglioIn"></div></div>
+    <div class="fase-tag" id="faseTag"></div>
     <div class="banco">
       <div class="cesto" id="cesto"><div class="cesto-tit" id="cestoTit">i segni</div><div class="tiles" id="tiles"></div></div>
       <button class="pbtn luce" id="bLanterna" tabindex="-1" aria-label="Lente: aiuto"></button>
@@ -786,10 +788,10 @@ h1,h2,h3{font-weight:inherit}
     <div class="pan classifica solo-sfida"><div class="pan-tit">Classifica di oggi <span class="live" id="liveGioco"><i></i>live</span></div><div class="righe" id="righeGioco"></div><div class="supera" id="supera"></div></div>
     <div class="pan comandi solo-sfida" id="comandi"></div>
     <div class="pan guida solo-allena" id="pGuida">
-      <div class="fasi" id="fasi"><span>Guarda</span><span>Insieme</span><span>Da solo</span></div>
+      <div class="fasi" id="fasi"><span>Insieme</span><span>Da solo</span></div>
       <div class="regola" id="regola"></div>
       <div class="parla" id="parla"></div>
-      <div class="guida-piede"><img class="guida-fig" id="guidaFig" alt=""><button class="avanti-g" id="avantiG" tabindex="-1"></button><button class="salta-g" id="saltaG" tabindex="-1"></button></div>
+      <div class="guida-piede"><img class="guida-fig" id="guidaFig" alt=""><button class="avanti-g" id="avantiG" tabindex="-1"></button></div>
     </div>
   </aside>
 </section>
@@ -820,7 +822,7 @@ h1,h2,h3{font-weight:inherit}
    Una sola meccanica (il cesto dei segni + il lettore), due momenti:
    - ALLENAMENTO: uguale per tutte le casate, guidato dal personaggio della
      propria casata. Prima la tastiera del Mac (dove sono i segni), poi 11 regole
-     in tre fasi di scaffolding (guarda → insieme → da solo). Niente punti.
+     in due fasi di scaffolding (insieme → da solo): si parte subito dai fatti. Niente punti.
    - SFIDA: a tempo (8 minuti). Ognuno risolve le sue frasi, estratte a caso; i fogli
      non finiscono mai. Classifica del giorno per casata "a testa": punti ÷ sfide
      giocate oggi (ogni sfida dura uguale). Si azzera a mezzanotte.
@@ -837,8 +839,9 @@ const CONFIG = {
   LANTERNE_PER_LIVELLO: 3,          // sfida: aiuti (lente) per livello; la casella aiutata vale al massimo PUNTI.conLanterna
   PAGINE_PER_LIVELLO: 1,            // sfida: fogli per livello prima di passare al successivo
   ESCHE_PER_PAGINA: 2,              // segni in più nel cesto, che non servono
-  ALLENA_INSIEME: 2,                // allenamento: frasi della fase INSIEME
-  ALLENA_SOLO: 3,                   // allenamento: frasi della fase DA SOLO
+  ALLENA_INSIEME: 0,                // allenamento: frasi della banca nella fase INSIEME, oltre alla frase d'esempio
+  ALLENA_SOLO: 8,                   // allenamento: frasi della fase DA SOLO (tanto esercizio: la regola la spiega la maestra)
+  ALLENA_PER_FOGLIO: 4,             // allenamento: frasi per foglio nella fase DA SOLO
   VELOCITA_LETTURA: 1,
   POLL_MS: 6000,
   AZZERA_OGNI_NOTTE: true,          // la classifica riparte da zero a mezzanotte (ora italiana); deve coincidere con l'Apps Script
@@ -916,7 +919,8 @@ const ICO = {
   allena: S24('<path d="M5 4h11a3 3 0 0 1 3 3v13H8a3 3 0 0 1-3-3z"/><path d="M5 17a3 3 0 0 1 3-3h11"/><path d="M9 8h6"/>'),
   fumetto: S24('<path d="M4 5h16v11H10l-4.5 3.5V16H4z"/><path d="M8.5 9.5h7M8.5 12.5h4"/>'),
   sicuro: S24('<path d="M12 3l7.5 3v5.5c0 4.6-3.2 8.2-7.5 9.5-4.3-1.3-7.5-4.9-7.5-9.5V6z"/><path d="M8.5 12l2.5 2.5 4.5-5"/>'),
-  salta: S24('<path d="M5 5l8 7-8 7zM15 5v14"/>'),
+  insieme: S24('<circle cx="8.5" cy="8" r="3"/><circle cx="16.6" cy="8.6" r="2.5"/><path d="M2.6 20a5.9 5.9 0 0 1 11.8 0M14.6 14.4a5 5 0 0 1 6.9 5.1"/>'),
+  solo: S24('<circle cx="12" cy="7.6" r="3.6"/><path d="M5 20.4a7 7 0 0 1 14 0"/>'),
   occhio: S24('<path d="M2 12s3.6-6.5 10-6.5S22 12 22 12s-3.6 6.5-10 6.5S2 12 2 12z"/><circle cx="12" cy="12" r="3" fill="currentColor"/>'),
   tastiera: S24('<rect x="2.5" y="6" width="19" height="12" rx="2"/><path d="M6 9.5h1M9.5 9.5h1M13 9.5h1M16.5 9.5h1M6 12.5h1M9.5 12.5h1M13 12.5h1M16.5 12.5h1M8 15.5h8"/>'),
   orologio: S24('<circle cx="12" cy="13" r="8"/><path d="M12 9v4l2.5 2M9.5 2.5h5"/>'),
@@ -1579,7 +1583,7 @@ function ritmo(box, html, alFine) {
         n.textContent.split(/(\s+)/).forEach(t => {
           if (!t) return;
           if (/^\s+$/.test(t)) { frag.appendChild(document.createTextNode(t)); return; }
-          const w = el('span', 'w'); w.textContent = t; frag.appendChild(w); parole.push(w);
+          const w = el('span', /^[.,;:!?…»)"']+$/.test(t) ? 'w pt' : 'w'); w.textContent = t; frag.appendChild(w); parole.push(w);   // pt: segno attaccato alla parola prima
         });
         n.replaceWith(frag);
       } else if (n.nodeType === 1 && !n.matches('.mt,.fi,.fu-x,.coda,svg')) avvolgi(n);
@@ -2223,9 +2227,11 @@ function lettorePer(v) {
 }
 const COLORI_FESTA = ['#123E90', '#FFD24A', '#2E7D4F', '#C0293B', '#2F5FB8', '#D9A21B', '#3C8C4E'];
 function iniziaLezione(id) {
+  // chiude quello che resta della regola di prima (il riquadro «Regola imparata» restava sopra e copriva tutto)
+  clearTimeout(G.tAvanti); G.genL++; nascondiOverlay(); chiudiFumetto(); bottoneGuida(null); mostraInvio(null);
   if (id === 'tastiera') { iniziaTastiera(); return; }
   const L = LEZIONI[id], r = mulberry32(cyrb53((SEED_LEZIONE || `${sid()}-${nuovoRun()}`) + '-' + id));
-  Object.assign(G, { modo: 'allena', lezId: id, lez: L, fase: 'guarda', statL: { aiuti: 0, errori: 0, caselle: 0, primo: 0 }, confusioni: {}, def: null, logLiv: null });
+  Object.assign(G, { modo: 'allena', lezId: id, lez: L, fase: 'insieme', statL: { aiuti: 0, errori: 0, caselle: 0, primo: 0 }, confusioni: {}, def: null, logLiv: null });
   G.focusLez = ORD_LEZIONI.indexOf(id);
   impostaCasata(null);
   $('#gioco').dataset.modo = 'allena';
@@ -2236,15 +2242,20 @@ function iniziaLezione(id) {
   const insieme = shuffle(BANCA.filter(L.filtro), r).slice(0, CONFIG.ALLENA_INSIEME), usati = new Set(insieme.map(f => f.id));
   const solo = shuffle(BANCA.filter(f => (L.filtroSolo || L.filtro)(f) && !usati.has(f.id) && f.parti.some(p => L.solo.includes(p.c))), r).slice(0, CONFIG.ALLENA_SOLO);
   if (id === 'indiretta' && !solo.some(f => !f.indiretta)) { const d = shuffle(BANCA.filter(LEZIONI.dialogo.filtro), r)[0]; if (d) solo[solo.length - 1] = d; }
-  G.esempio = creaPagina([creaVoce({ id: 'es', ...analizza(L.esempio) }, { attivi: L.attivi })], { r });
-  G.insieme = insieme.map(f => creaPagina([creaVoce(f, { attivi: L.attivi })], { esche: L.esche, nEsche: 1, r }));
-  G.solo = creaPagina(shuffle(solo, r).map(f => creaVoce(f, { attivi: L.solo })), { esche: L.esche, nEsche: 1, r });
+  // INSIEME: prima la frase d'esempio scritta per la regola (la più chiara), poi due frasi della banca
+  const esempio = creaPagina([creaVoce({ id: 'es', ...analizza(L.esempio) }, { attivi: L.attivi })], { esche: L.esche, nEsche: 1, r });
+  G.insieme = [esempio, ...insieme.map(f => creaPagina([creaVoce(f, { attivi: L.attivi })], { esche: L.esche, nEsche: 1, r }))];
+  // DA SOLO: le frasi divise in fogli il più possibile uguali (8 frasi = 2 fogli da 4)
+  const nf = Math.max(1, Math.ceil(solo.length / CONFIG.ALLENA_PER_FOGLIO)), mescolate = shuffle(solo, r);
+  G.soli = Array.from({ length: nf }, (_, i) => mescolate.filter((_, k) => k % nf === i))
+    .filter(g => g.length).map(g => creaPagina(g.map(f => creaVoce(f, { attivi: L.solo })), { esche: L.esche, nEsche: 1, r }));
   aggiornaHUD();
   mostraSchermo('gioco');
-  requestAnimationFrame(() => requestAnimationFrame(avviaGuarda));
+  setTimeout(avviaInsieme, 30);
 }
 function aggiornaFasi() {
-  const k = { guarda: 0, insieme: 1, solo: 2 }[G.fase];
+  const k = { insieme: 0, solo: 1 }[G.fase];
+  mostraFase('#faseTag', G.fase, '#gioco');
   $('#fasi').querySelectorAll('span').forEach((s, i) => { s.className = i < k ? 'ok' : i === k ? 'ora' : ''; });
   aggiornaHUD();
 }
@@ -2263,45 +2274,23 @@ function bottoneGuida(testo, fn, b = $('#avantiG')) {
   b.innerHTML = `${testo}${ICO.avanti}`; b.classList.add('on'); b.onclick = () => premiInvio();
   mostraInvio(() => { b.classList.remove('on'); fn(); }, G.schermo === 'tastiera' ? '#tAlto' : '#foglio');
 }
-function bottoneSalta(on, b = $('#saltaG'), fn = saltaGuarda) { b.classList.toggle('on', on); b.innerHTML = `${ICO.salta}salta<span class="cap">INVIO</span>`; b.onclick = on ? fn : null; }
-
-/* Fase 1 · GUARDA: il personaggio mostra la regola su una frase d'esempio */
-async function avviaGuarda() {
-  const L = G.lez;
-  G.fase = 'guarda'; G.stato = 'demo'; aggiornaFasi(); bottoneGuida(null); bottoneSalta(true);
-  azzeraPagina(G.esempio); mostraPagina(G.esempio, { uno: true });
-  const gen = ++G.genL, vivo = () => gen === G.genL;
-  pulsaRegola(-1);
-  await parla(`Ciao. Oggi impariamo <b>${L.art}</b>.`, true); if (!vivo()) return;
-  await pausaFissa(500); if (!vivo()) return;
-  pulsaRegola(0);
-  await parla('Leggi la regola: è scritta qui sopra.', true); if (!vivo()) return;
-  await pausaFissa(1800); if (!vivo()) return;
-  for (const c of G.P.caselle) {
-    const v = G.P.voci[c.voce];
-    const sp = mostraSpie(v, c);
-    pulsaRegola(-1);
-    await parla(sp ? `Guarda: ${sp.testo}` : testoQui(c), true); if (!vivo()) return;
-    await pausaFissa(700); if (!vivo()) return;
-    c.el.classList.add('invita');
-    await parla(`Qui ci vuole <b>${SEGNI[c.atteso].art}</b>.`); if (!vivo()) return;
-    await volaSegno(c.atteso, c); if (!vivo()) return;
-    c.ok = true; aggiornaCasella(c); spegniSpie();
-    await pausaFissa(400); if (!vivo()) return;
-  }
-  await parla('Ascolta come legge il lettore: si ferma, alza la voce o fa una pausa, come dicono i segni.'); if (!vivo()) return;
-  if (await leggiVoce(G.P.voci[0], gen, false) === 'stop') return;
-  lettoreEl.classList.remove('on');
-  SFX.play('frase');
-  bottoneSalta(false);
-  parla('Ora proviamo insieme.', true);
-  bottoneGuida('proviamo insieme', avviaInsieme);
+/* Le due fasi si riconoscono a colpo d'occhio: INSIEME (con gli aiuti, cornice tratteggiata)
+   e DA SOLO (cornice piena, si preme LEGGI). L'etichetta sta in alto sul foglio. */
+const FASI = {
+  insieme: { ico: 'insieme', tit: 'Insieme', sub: 'ti aiutiamo noi' },
+  solo: { ico: 'solo', tit: 'Da solo', sub: 'metti i segni, poi LEGGI' },
+  soloT: { ico: 'solo', tit: 'Da solo', sub: 'scrivi i segni che mancano' },
+};
+function mostraFase(dove, fase, schermo) {
+  const f = FASI[fase]; if (!f) return;
+  const e = $(dove); e.className = 'fase-tag ' + (fase === 'insieme' ? 'insieme' : 'solo');
+  e.innerHTML = `${ICO[f.ico]}<b>${f.tit}</b><span>${f.sub}</span>`;
+  $(schermo).dataset.fase = fase === 'insieme' ? 'insieme' : 'solo';
 }
-function saltaGuarda() { if (G.fase === 'guarda') { G.genL++; avviaInsieme(); } }
 
-/* Fase 2 · INSIEME: indizi che pulsano, controllo subito, aiuti graduati */
+/* Fase 1 · INSIEME: indizi che pulsano, controllo subito, aiuti graduati */
 function avviaInsieme() {
-  G.genL++; bottoneGuida(null); bottoneSalta(false);
+  G.genL++; bottoneGuida(null);
   G.fase = 'insieme'; G.iInsieme = 0; aggiornaFasi();
   if (!G.insieme.length) { avviaSolo(); return; }
   mostraInsieme();
@@ -2310,15 +2299,19 @@ function mostraInsieme() {
   G.stato = 'gioco';
   mostraPagina(G.insieme[G.iInsieme], { uno: true });
   aggiornaHUD();
-  guidaCasella();
+  // alla prima frase la guida presenta la regola (che pulsa), ma si può già mettere il segno
+  guidaCasella(null, G.iInsieme === 0 ? `Ripassiamo <b>${G.lez.art}</b>. ` : '');
 }
-function guidaCasella() {
+function guidaCasella(dopo = null, prima = '') {
   const P = G.P, c = P.caselle.find(c => !c.ok); if (!c) return;
   seleziona(c.i);
   const sp = mostraSpie(P.voci[c.voce], c);
   c.el.classList.add('invita');
-  parla(`${sp ? `Guarda: ${sp.testo} ` : ''}Quale segno ci vuole? Prendilo dal cesto.`);
   pulsaRegola(-1);
+  const testo = `${prima}${sp ? `${sp.testo} ` : ''}Quale segno ci vuole?`;
+  if (!dopo) { parla(testo); return; }
+  // il segno si può mettere subito; il suggerimento arriva quando la guida ha finito il fumetto di prima
+  dopo.then(() => { if (G.P === P && G.fase === 'insieme' && G.stato === 'gioco' && !c.ok && !c.val) parla(testo); });
 }
 function verificaInsieme(c) {
   const L = G.lez, P = G.P;
@@ -2326,10 +2319,10 @@ function verificaInsieme(c) {
   if (giusto(c)) {
     c.ok = true; aggiornaCasella(c); G.statL.caselle++; if (c.tentativi === 1) G.statL.primo++;
     effettoSegno(c.atteso, c.el, c); lettoreEl.classList.remove('on');
-    parla(`Giusto. ${testoQui(c)}`);
+    const detto = parla(`Giusto. ${testoQui(c)}`);
     aggiornaCesto();
     if (P.caselle.every(c => c.ok)) fraseInsiemeFatta(900);
-    else setTimeout(() => { if (G.fase === 'insieme' && G.P === P && G.stato === 'gioco') guidaCasella(); }, 2600);
+    else guidaCasella(detto);
     return;
   }
   // errore: la casella diventa ambra, il segno torna nel cesto, l'aiuto cresce
@@ -2345,40 +2338,54 @@ function verificaInsieme(c) {
     if (c.tentativi === 1) { const sp = mostraSpie(v, c, true); c.el.classList.add('invita'); parla(`${SEGNI[messo].tu} Guarda di nuovo: ${sp ? sp.testo : testoQui(c)}`, true); }
     else if (c.tentativi === 2) { mostraSpie(v, c, true); c.el.classList.add('invita'); pulsaRegola(0); parla(`Rileggi la regola: <b>${L.regola[0]}</b>`, true); }
     else {   // terzo tentativo: il personaggio mostra il segno giusto
-      G.statL.aiuti++; parla(`Ti faccio vedere io: ci vuole <b>${SEGNI[c.atteso].art}</b>.`, true);
+      G.statL.aiuti++; const detto = parla(`Ti faccio vedere io: ci vuole <b>${SEGNI[c.atteso].art}</b>.`, true);
       G.stato = 'aiuto';
       volaSegno(c.atteso, c).then(() => {
         if (G.P !== P) return;
         c.ok = true; aggiornaCasella(c); G.statL.caselle++; effettoSegno(c.atteso, c.el, c); G.stato = 'gioco';
-        if (P.caselle.every(c => c.ok)) fraseInsiemeFatta(1400);
-        else setTimeout(() => { if (G.fase === 'insieme' && G.P === P && G.stato === 'gioco') guidaCasella(); }, 2200);
+        if (P.caselle.every(c => c.ok)) fraseInsiemeFatta(900);
+        else guidaCasella(detto);
       });
     }
   }, 850);
 }
-/* Frase dell'INSIEME completata: il lettore la legge, musichetta, poi si va avanti */
+/* Frase dell'INSIEME completata: il lettore la legge e intanto si può già andare avanti
+   (INVIO interrompe la lettura: è per chi vuole riascoltarla, non un'attesa obbligata) */
 function fraseInsiemeFatta(dopo) {
   const P = G.P; G.stato = 'lettura'; const gen = ++G.genL;
+  const ultima = G.iInsieme + 1 >= G.insieme.length;
+  const vai = () => { if (G.P !== P) return; G.genL++; VOCE.togli(c => c === 'lettore'); lettoreEl.classList.remove('on'); G.iInsieme++; ultima ? avviaSolo() : mostraInsieme(); };
+  bottoneGuida(ultima ? 'da solo' : 'avanti', vai);
   setTimeout(async () => {
     if (gen !== G.genL) return;
     if (await leggiVoce(P.voci[0], gen, false) === 'stop') return;
     lettoreEl.classList.remove('on'); SFX.play('frase');
-    G.iInsieme++; G.stato = 'pausa-guida';
-    if (G.iInsieme < G.insieme.length) { parla('Ancora una frase insieme.'); bottoneGuida('avanti', () => { bottoneGuida(null); mostraInsieme(); }); }
-    else { parla('Ora prova <b>da solo</b>: le parole-spia non si accendono più.', true); bottoneGuida('da solo', avviaSolo); }
+    G.stato = 'pausa-guida';
+    parla(ultima ? 'Ora tocca a te, <b>da solo</b>.' : 'Ancora una frase insieme.', ultima);
   }, dopo);
 }
 
-/* Fase 3 · DA SOLO: stesso gioco della sfida, senza punti */
+/* Fase 2 · DA SOLO: stesso gioco della sfida, senza punti */
 function avviaSolo() {
-  G.genL++; bottoneGuida(null); bottoneSalta(false);
-  G.fase = 'solo'; G.stato = 'gioco'; aggiornaFasi(); pulsaRegola(-1);
-  mostraPagina(G.solo);
-  parla('Metti tutti i segni, poi premi <b>LEGGI</b>. La lente ti aiuta.');
+  G.genL++; bottoneGuida(null);
+  G.fase = 'solo'; G.iSolo = 0; aggiornaFasi(); pulsaRegola(-1);
+  mostraSolo();
+}
+function mostraSolo() {
+  G.stato = 'gioco'; bottoneGuida(null);
+  mostraPagina(G.soli[G.iSolo]);
+  aggiornaHUD();
+  parla(G.iSolo ? 'Ecco un altro foglio.' : 'Metti tutti i segni, poi premi <b>LEGGI</b>. La lente ti aiuta.');
 }
 function completaSolo() {
-  G.stato = 'completo'; mostraInvio(null);
-  const C = G.solo.caselle.filter(c => c.daFare && c.atteso), primo = C.filter(c => c.errori === 0 && !c.lanterna).length;
+  if (G.iSolo + 1 < G.soli.length) {   // foglio finito, ce n'è un altro: si va avanti con INVIO
+    G.stato = 'pausa-guida'; SFX.play('pagina'); $('#foglio').classList.add('fatta');
+    parla(`Foglio ${G.iSolo + 1} fatto. Avanti con il prossimo.`);
+    bottoneGuida('altro foglio', () => { $('#foglio').classList.remove('fatta'); G.iSolo++; mostraSolo(); });
+    return;
+  }
+  G.stato = 'completo'; mostraInvio(null); $('#foglio').classList.remove('fatta');
+  const C = G.soli.flatMap(P => P.caselle).filter(c => c.daFare && c.atteso), primo = C.filter(c => c.errori === 0 && !c.lanterna).length;
   const L = G.lez;
   salvaLezione(G.lezId, { primo, caselle: C.length, aiuti: G.statL.aiuti, errori: G.statL.errori });
   SFX.play('lezione');
@@ -2404,8 +2411,8 @@ function salvaLezione(id, dati) {
    ALLENAMENTO 0 — I SEGNI SULLA TASTIERA DEL MAC
    Tastiera Mac italiana (ISO), layout "Italiano" di macOS (lo stesso dei Mac della
    scuola e del Labirinto). Combinazioni verificate sul layout di sistema.
-   Il bambino guarda dove sono i segni, poi li scrive con la tastiera vera:
-   la tastiera sullo schermo si accende con i tasti premuti (e.code) e il
+   Si parte subito scrivendo: il segno da scrivere è collegato ai suoi tasti da una
+   linea che lampeggia; la tastiera sullo schermo si accende con i tasti premuti (e.code) e il
    carattere scritto si controlla con e.key. Si può anche cliccare sulla
    tastiera disegnata (LIM): maiusc e option restano premuti per un tasto.
    ===================================================================== */
@@ -2465,7 +2472,7 @@ const SEGNI_MAC = [
   { s: ')', nome: 'la parentesi che chiude', code: 'Digit9', maiusc: true },
   { s: '"', nome: 'le virgolette', code: 'Digit2', maiusc: true },
 ];
-const SEGNI_MAC_EXTRA = [   // non si allenano: si mostrano come curiosità
+const SEGNI_MAC_EXTRA = [   // non si allenano: servono alla tastiera disegnata cliccabile (con option)
   { s: '…', nome: 'i puntini', code: 'Comma', option: true },
   { s: '«', nome: 'le virgolette basse', code: 'Digit1', option: true },
   { s: '»', nome: 'le virgolette basse che chiudono', code: 'Digit1', option: true, maiusc: true },
@@ -2565,60 +2572,32 @@ function iniziaTastiera() {
   $('#tRegola').innerHTML = `<div class="rg-top"><div class="rg-segno">${ICO.tastiera}</div><div class="rg-nome">I segni sulla tastiera</div></div><p>I segni disegnati <b>in alto</b> sul tasto si scrivono tenendo premuto <b>maiusc</b>.</p><p>Le lettere con l'accento à è ì ò ù hanno un tasto tutto loro.</p>`;
   costruisciMac(); spegniMac('pulsa', 'tieni', 'si', 'no', 'giu');
   const r = mulberry32(cyrb53((SEED_LEZIONE || `${sid()}-${nuovoRun()}`) + '-tastiera'));
-  // INSIEME: 7 segni, almeno 4 con maiusc e 2 lettere accentate; DA SOLO: 3 dettati
+  // INSIEME: 7 segni, almeno 4 con maiusc e 2 lettere accentate; DA SOLO: 5 dettati
   const conM = shuffle(SEGNI_MAC.filter(t => t.maiusc), r), acc = shuffle(SEGNI_MAC.filter(t => /[àèìòù]/.test(t.s)), r), altri = shuffle(SEGNI_MAC.filter(t => !t.maiusc && !/[àèìòù]/.test(t.s)), r);
   T.lista = shuffle([...conM.slice(0, 4), ...acc.slice(0, 2), altri[0]], r);
-  T.dettati = shuffle(DETTATI, r).slice(0, 3);
+  T.dettati = shuffle(DETTATI, r).slice(0, 5);
   Object.assign(T, { i: 0, err: 0, aiuti: 0, primo: 0, tot: 0, di: 0, gi: 0, maiuscV: false, optionV: false });
   nascondiOverlayT(); mostraInvio(null);
   mostraSchermo('tastiera');
-  requestAnimationFrame(() => requestAnimationFrame(guardaTastiera));
+  setTimeout(insiemeTastiera, 30);
 }
-function fasiT(k) { $('#tFasi').innerHTML = ['guarda', 'insieme', 'da solo'].map((t, i) => `<span class="${i < k ? 'ok' : i === k ? 'ora' : ''}">${t}</span>`).join(''); }
-/* GUARDA: tutti i segni con la loro combinazione; uno alla volta si accende sulla tastiera */
-async function guardaTastiera() {
-  T.fase = 'guarda'; fasiT(0);
-  const gen = ++T.gen, vivo = () => gen === T.gen;
-  $('#tAlto').innerHTML = `<div class="t-tit">I segni e i loro tasti</div><div class="t-elenco">${SEGNI_MAC.map((t, i) => `<div class="t-voce" data-i="${i}"><span class="tg">${t.s}</span><span class="tc">${comboHtml(t)}</span></div>`).join('')}</div>
-    <div class="t-tit">Lo sapevi? Altri segni</div><div class="t-elenco">${SEGNI_MAC_EXTRA.map((t, i) => `<div class="t-voce extra" data-x="${i}"><span class="tg">${t.s}</span><span class="tc">${comboHtml(t)}</span></div>`).join('')}</div>`;
-  bottoneSalta(true, $('#tSalta'), saltaGuardaT); bottoneGuida(null, null, $('#tAvanti'));
-  // passando con il mouse su un segno (finito il giro) si accende il suo tasto, con la linea
-  const segnoVoce = v => v.dataset.i != null ? SEGNI_MAC[+v.dataset.i] : SEGNI_MAC_EXTRA[+v.dataset.x];
-  document.querySelectorAll('#tAlto .t-voce').forEach(v => {
-    v.onmouseenter = () => { if (T.tour || T.fase !== 'guarda') return; v.classList.add('ora'); mostraCombo(segnoVoce(v), true, v.querySelector('.tc')); };
-    v.onmouseleave = () => { if (T.tour || T.fase !== 'guarda') return; v.classList.remove('ora'); mostraCombo(null); };
-  });
-  T.tour = true;
-  await parlaT('Ciao. Ti facciamo vedere dove sono i segni sulla tastiera del tuo Mac.', true); if (!vivo()) return;
-  for (const [i, t] of SEGNI_MAC.entries()) {
-    document.querySelectorAll('.t-voce').forEach(v => v.classList.toggle('ora', v.dataset.i != null && +v.dataset.i === i));
-    mostraCombo(t, true, document.querySelector(`.t-voce[data-i="${i}"] .tc`));
-    await parlaT(`<b>${maiuscola(t.nome)}</b>: ${spiegaCombo(t)}`); if (!vivo()) return;
-    await pausaFissa(t.maiusc ? 700 : 350); if (!vivo()) return;
-    document.querySelector(`.t-voce[data-i="${i}"]`).classList.add('vista');
-  }
-  document.querySelectorAll('.t-voce').forEach(v => v.classList.remove('ora'));
-  mostraCombo(null); T.tour = false;
-  bottoneSalta(false, $('#tSalta'));
-  SFX.play('frase');
-  parlaT('Ora prova tu con la tastiera vera.', true);
-  bottoneGuida('proviamo insieme', insiemeTastiera, $('#tAvanti'));
-}
-function saltaGuardaT() { if (T.fase === 'guarda') { T.gen++; T.tour = false; bottoneSalta(false, $('#tSalta')); insiemeTastiera(); } }
+function fasiT(k) {
+  mostraFase('#tFaseTag', k ? 'soloT' : 'insieme', '#tastiera');
+  $('#tFasi').innerHTML = ['insieme', 'da solo'].map((t, i) => `<span class="${i < k ? 'ok' : i === k ? 'ora' : ''}">${t}</span>`).join(''); }
 /* INSIEME: un segno alla volta, il tasto giusto pulsa; si scrive con la tastiera vera */
 function insiemeTastiera() {
-  T.gen++; T.fase = 'insieme'; T.i = 0; fasiT(1); bottoneGuida(null, null, $('#tAvanti')); bottoneSalta(false, $('#tSalta'));
+  T.gen++; T.fase = 'insieme'; T.i = 0; fasiT(0); bottoneGuida(null, null, $('#tAvanti'));
   mostraBersaglio();
 }
 function mostraBersaglio() {
   const t = T.lista[T.i]; T.err = 0;
   $('#tAlto').innerHTML = `<div class="t-contatore">${T.i + 1} di ${T.lista.length}</div><div class="t-bersaglio"><div class="big" id="tBig">${t.s}</div><div class="nome">Scrivi ${t.nome}</div><div class="combo" id="tCombo">${comboHtml(t)}</div></div>`;
   mostraCombo(t, true, $('#tCombo'));
-  parlaT(`Scrivi <b>${t.nome}</b> con la tastiera: ${spiegaCombo(t)}`);
+  parlaT(`${T.i === 0 ? 'Troviamo i segni sulla tastiera del tuo Mac. ' : ''}Scrivi <b>${t.nome}</b> con la tastiera: ${spiegaCombo(t)}`, T.i === 0);
 }
 /* DA SOLO: frasi con i buchi da riempire scrivendo; niente tasti accesi, la lente aiuta */
 function soloTastiera() {
-  T.gen++; T.fase = 'solo'; T.di = 0; fasiT(2); bottoneGuida(null, null, $('#tAvanti'));
+  T.gen++; T.fase = 'solo'; T.di = 0; fasiT(1); bottoneGuida(null, null, $('#tAvanti'));
   mostraDettato();
   parlaT('Ora da solo: scrivi i segni e le lettere che mancano. Se non ricordi il tasto, usa la lente.');
 }
@@ -2645,17 +2624,6 @@ function lenteTastiera() {
 /* Un carattere scritto (tastiera vera o clic sulla tastiera disegnata) */
 function carattereTastiera(ch, code) {
   const confronta = (a, b) => a === b || (/[àèìòù]/i.test(b) && a.toLowerCase() === b);
-  if (T.fase === 'guarda') {   // esplorazione: il segno scritto si illumina nell'elenco
-    const i = SEGNI_MAC.findIndex(t => t.s === ch);
-    if (i >= 0) {
-      const v = document.querySelector(`.t-voce[data-i="${i}"]`);
-      if (v) {
-        v.classList.add('vista'); v.animate([{ transform: 'scale(1.12)' }, { transform: 'none' }], { duration: 350 });
-        if (!T.tour) { mostraCombo(SEGNI_MAC[i], true, v.querySelector('.tc')); clearTimeout(T.tEsplora); T.tEsplora = setTimeout(() => { if (T.fase === 'guarda' && !T.tour) mostraCombo(null); }, 2200); }
-      }
-    }
-    return;
-  }
   if (T.fase === 'insieme') {
     const t = T.lista[T.i], big = $('#tBig'); if (!t || !big || big.classList.contains('ok')) return;
     if (confronta(ch, t.s)) {
@@ -2669,7 +2637,7 @@ function carattereTastiera(ch, code) {
         T.i++;
         if (T.i < T.lista.length) mostraBersaglio();
         else { SFX.play('frase'); parlaT('Ora prova <b>da solo</b>: i tasti non si accendono più.', true); bottoneGuida('da solo', soloTastiera, $('#tAvanti')); }
-      }, 1700);
+      }, 900);
     } else {
       T.err++; big.classList.remove('no'); void big.offsetWidth; big.classList.add('no'); SFX.play('nonAncora');
       if (code) tastiEl(code).forEach(e => { e.classList.add('no'); setTimeout(() => e.classList.remove('no'), 700); });
@@ -2728,7 +2696,7 @@ function fineTastiera() {
 function tastoTastiera(e) {   // tasti premuti sulla tastiera vera, nella schermata della tastiera
   if (e.code) tastiEl(e.code).forEach(t => t.classList.add('giu'));
   if (e.key === 'Escape') { apriMappa(); return; }
-  if (e.key === 'Enter') { if (G.invioFn) premiInvio(); else if (T.fase === 'guarda') saltaGuardaT(); return; }
+  if (e.key === 'Enter') { if (G.invioFn) premiInvio(); return; }
   if (e.key.length !== 1 || e.metaKey || e.ctrlKey) return;
   if (e.getModifierState && e.getModifierState('CapsLock') && /[a-zàèìòù]/i.test(e.key)) parlaT('Attenzione: il <b>blocco maiuscole</b> è acceso. Premi il tasto bloc maiusc per spegnerlo.', true);
   carattereTastiera(e.key, e.code);
@@ -2738,6 +2706,7 @@ function tastoTastiera(e) {   // tasti premuti sulla tastiera vera, nella scherm
    SFIDA A TEMPO
    ===================================================================== */
 function iniziaSfida() {
+  nascondiOverlay(); chiudiFumetto();
   Object.assign(G, { modo: 'sfida', seed: SEED_LEZIONE || `${sid().slice(0, 6)}-${nuovoRun()}`, punti: 0, giro: 0, usate: new Set(), log: [], confusioni: {}, checkin: false, debrief: null, lez: null, fase: null });
   G.tempo = { tot: IMP.durata, resta: IMP.durata, attivo: false, avvisato: false };
   Classifica.inizia(G.casa);
@@ -2940,9 +2909,10 @@ function nascondiOverlay() { const o = ov(); o.classList.remove('on'); o.innerHT
 function aggiornaHUD() {
   if (G.modo === 'allena') {
     const L = G.lez; if (!L) return;
-    $('#hudTit').innerHTML = `<span class="tn">Allenamento</span><span class="gl">${glifoLez(L)}</span>${L.nome}`;
-    const k = { guarda: 0, insieme: 1, solo: 2 }[G.fase] ?? 0;
-    $('#pallini').innerHTML = ['guarda', 'insieme', 'da solo'].map((t, i) => `<span class="${i < k ? 'ok' : i === k ? 'ora' : ''}">${t}</span>`).join('');
+    const fogli = G.fase === 'solo' && G.soli && G.soli.length > 1 ? `<span class="tn">foglio ${G.iSolo + 1} di ${G.soli.length}</span>` : '';
+    $('#hudTit').innerHTML = `<span class="tn">Allenamento</span><span class="gl">${glifoLez(L)}</span>${L.nome}${fogli}`;
+    const k = { insieme: 0, solo: 1 }[G.fase] ?? 0;
+    $('#pallini').innerHTML = ['insieme', 'da solo'].map((t, i) => `<span class="${i < k ? 'ok' : i === k ? 'ora' : ''}">${t}</span>`).join('');
   } else {
     const def = G.def; if (!def) return;
     $('#hudTit').innerHTML = `<span class="tn">Livello ${def.n}${G.giro ? ' · giro ' + (G.giro + 1) : ''}</span>${def.nome}`;
@@ -3053,7 +3023,6 @@ function mostraPausa() {
   if (G.schermo !== 'gioco' || ['pausa', 'completo', 'pagina', 'aiuto', 'tempo'].includes(G.stato)) return;
   G.statoPrima = G.stato; G.genL++; VOCE.zitto();   // una lettura in corso si interrompe
   if (G.statoPrima === 'lettura') G.statoPrima = 'gioco';
-  if (G.fase === 'guarda') G.statoPrima = 'riguarda';
   G.stato = 'pausa'; G.focusPausa = 0; lettoreEl.classList.remove('on');
   G.invioPrima = G.invioFn; mostraInvio(null);
   const esci = G.modo === 'allena' ? 'tutte le regole' : 'esci dalla sfida';
@@ -3064,7 +3033,6 @@ function mostraPausa() {
 function confermaPausa(a) {
   if (a === 1) { abbandona(); return; }
   nascondiOverlay(); mostraInvio(null);
-  if (G.statoPrima === 'riguarda') { avviaGuarda(); return; }
   if (G.statoPrima === 'intro') { G.stato = 'intro'; mostraIntroLivello(); return; }
   G.stato = G.statoPrima === 'pausa-guida' ? 'pausa-guida' : 'gioco';
   if (G.stato === 'pausa-guida' && G.invioPrima) mostraInvio(G.invioPrima, '#foglio');
@@ -3074,7 +3042,7 @@ function confermaPausa(a) {
   aggiornaBanco();
 }
 function abbandona() {
-  clearTimeout(G.tAvanti); G.genL++; nascondiOverlay(); chiudiFumetto(); bottoneGuida(null); bottoneSalta(false); mostraInvio(null);
+  clearTimeout(G.tAvanti); G.genL++; nascondiOverlay(); chiudiFumetto(); bottoneGuida(null); mostraInvio(null);
   if (G.modo === 'sfida') { G.tempo.attivo = false; chiudiLivello(); if (G.checkin) salvaTelemetria(null, false); Classifica.chiudi(); G.stato = 'off'; mostraSchermo('home'); aggiornaClassifica(); }
   else apriMappa();
 }
@@ -3215,8 +3183,7 @@ document.addEventListener('keydown', e => {
     }
     if (G.stato === 'intro') { if (spazio || k) iniziaLivello(); return; }
     if (G.stato === 'completo' || G.stato === 'tempo') return;
-    if (G.stato === 'demo' && G.fase === 'guarda') { if (invio) saltaGuarda(); return; }
-    if (G.stato === 'lettura') { if (invio || spazio) G.veloce = true; return; }
+    if (G.stato === 'lettura') { if (invio && G.invioFn) premiInvio(); else if (invio || spazio) G.veloce = true; return; }
     if (G.stato !== 'gioco') return;
     if (k === 'sinistra') muoviSel(-1);
     else if (k === 'destra') muoviSel(1);
