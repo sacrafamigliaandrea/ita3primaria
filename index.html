@@ -533,6 +533,100 @@ h1,h2,h3,h4{font-weight:inherit}
 .k-mini svg{width:1.15em;height:1.15em;margin-right:.2em}
 .k-mini.m{display:inline-flex;align-items:center}
 
+/* ---------- RICREAZIONE: il ninja dei segni (iMac + Magic Keyboard in prospettiva, come Mac Ninja) ---------- */
+#ninja{grid-template-columns:clamp(210px,15vw,300px) minmax(0,1fr) clamp(230px,18vw,360px);grid-template-rows:auto minmax(0,1fr)}
+#ninja .zona.dx{padding:2vh 1.2vw 2vh 0}
+.p-testa #pNinja{margin-left:auto}
+.p-testa #pNinja+.indietro{margin-left:0}
+.nk-scena{position:relative;min-width:0;min-height:0;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:1.2vh;padding:1.4vh 1vw 2vh}
+.imac{position:relative;width:100%;max-width:min(840px,58vh);flex:none}
+.nk-invio{position:absolute;right:1vw;top:6vh;width:clamp(170px,13vw,250px);height:clamp(210px,30vh,300px);pointer-events:none}
+.imac-svg{width:100%;height:auto;display:block;filter:drop-shadow(0 26px 40px rgba(11,42,102,.28))}
+.nk-box{position:absolute;left:12.25%;top:6.5625%;width:75.5%;height:56.875%;border-radius:5px;overflow:hidden;display:flex;flex-direction:column;background:radial-gradient(120% 140% at 22% 0%,#2453AE 0%,#0F2C6B 55%,#081C47 100%);box-shadow:inset 0 0 40px rgba(0,0,0,.45);container-type:size;transition:box-shadow .25s}
+.nk-box.flash-ok{box-shadow:inset 0 0 0 4px rgba(127,217,162,.95),inset 0 0 44px rgba(127,217,162,.4)}
+.nk-box.flash-no{box-shadow:inset 0 0 0 4px rgba(255,176,60,.95),inset 0 0 44px rgba(255,176,60,.4)}
+.nk-menubar{display:flex;justify-content:space-between;align-items:center;gap:2cqw;height:max(20px,7.5cqh);flex:none;padding:0 3cqw;background:rgba(255,255,255,.14);font:500 clamp(9px,min(3cqw,4.6cqh),15px)/1 var(--fd);color:rgba(255,255,255,.85);white-space:nowrap}
+.nk-menubar b{color:#fff;font-weight:600}
+.nk-mb-dx{display:flex;gap:2.4cqw;align-items:center}
+.nk-mb-dx .lvl{background:rgba(255,255,255,.2);padding:.3em .8em;border-radius:999px;color:#fff}
+.nk-prog{height:max(3px,.9cqh);background:rgba(255,255,255,.12);flex:none}
+.nk-prog i{display:block;height:100%;width:0;background:linear-gradient(90deg,#7FD9A2,#FFD24A);transition:width .4s}
+.nk-schermo{flex:1;min-height:0;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:2.4cqh;padding:2cqh 5cqw;text-align:center;color:#fff}
+.nk-chiedi{font:500 clamp(11px,min(4.4cqw,6.4cqh),26px)/1.2 var(--fd);color:rgba(255,255,255,.78)}
+.nk-chiedi b{color:#FFD24A;font-weight:700}
+.nk-centro{display:grid;place-items:center;min-height:0}
+canvas.nk-pers{width:min(50cqh,46cqw);height:min(50cqh,46cqw);display:block}
+.nk-nome{font:700 min(8.6cqw,13cqh)/1.1 var(--fd);color:#fff}
+.nk-frase{font:400 min(6.6cqw,10.5cqh)/1.25 var(--f);color:#fff}
+.nk-buco{display:inline-block;min-width:1em;height:1.15em;vertical-align:-.2em;margin:0 .06em;border-radius:.2em;border:3px dashed #FFD24A;font:700 1em/1em var(--f);font-style:normal;text-align:center;color:#7FD9A2}
+.nk-buco.pieno{border-style:solid;border-color:#7FD9A2}
+.nk-live{min-height:max(24px,9cqh);display:flex;align-items:center;gap:1.2cqw;flex-wrap:wrap;justify-content:center;font-size:clamp(11px,min(3.8cqw,5.6cqh),22px)}
+.nk-chip{display:inline-flex;align-items:center;gap:.3em;padding:.35em .7em;border-radius:.5em;background:#fff;color:var(--blu);font:700 1em/1 var(--fd);box-shadow:0 2px 0 rgba(0,0,0,.25)}
+.nk-chip svg{width:1.1em;height:1.1em}
+.nk-piu,.nk-era{color:rgba(255,255,255,.65);font:600 .9em/1 var(--fd)}
+.nk-dec{display:flex;gap:2cqw;justify-content:center;flex-wrap:wrap}
+.nk-dec:empty{display:none}
+.nk-btn{display:inline-flex;align-items:center;gap:.5em;padding:.6em 1em;border-radius:.6em;font:600 clamp(11px,min(3.6cqw,5.2cqh),20px)/1 var(--fd);color:#fff;border:1.5px solid rgba(255,255,255,.35);background:rgba(255,255,255,.1)}
+.nk-btn svg{width:1.2em;height:1.2em}
+.nk-btn .cap{font-size:.68em}
+.nk-btn.inc{background:#fff;color:var(--blu);border-color:#fff}
+.nk-btn.cont{background:var(--oro);border-color:var(--oro)}
+.nk-btn.cont .cap{background:rgba(255,255,255,.2);color:#fff;border-color:rgba(255,255,255,.4);box-shadow:none}
+.nk-hint{color:rgba(255,255,255,.45);font:400 clamp(9px,min(2.8cqw,4cqh),15px)/1.2 var(--f)}
+.nk-intro h3{margin:1.2cqh 0;font:700 min(8cqw,12cqh)/1 var(--fd)}
+.nk-intro p{max-width:84cqw;margin:0 auto;font:400 clamp(11px,min(3.6cqw,5.2cqh),20px)/1.35 var(--f);color:rgba(255,255,255,.88)}
+.nk-intro .nk-reg{margin-top:1.2cqh}
+.nk-intro b{color:#FFD24A}
+.nk-segni{display:flex;justify-content:center;gap:1.5cqw}
+.nk-segni canvas.nk-pers{width:min(22cqh,13cqw);height:min(22cqh,13cqw)}
+.nk-stelle b{display:block;font:700 min(15cqw,22cqh)/1 var(--fd);color:#FFD24A}
+.nk-stelle span{font:600 clamp(11px,min(3.6cqw,5cqh),20px) var(--fd);color:rgba(255,255,255,.82)}
+.nk-fine p{margin-top:1.6cqh;font:400 clamp(11px,min(3.6cqw,5cqh),20px)/1.3 var(--f)}
+.nk-rip i{display:inline-grid;place-items:center;min-width:1.6em;height:1.6em;margin:0 .2em;border-radius:.4em;background:rgba(255,176,60,.25);color:#FFD24A;font-style:normal;font-weight:700}
+.nk-attrezzi{display:flex;gap:10px;justify-content:center;flex:none}
+.nk-tool{display:inline-flex;align-items:center;gap:8px;padding:.6em 1.1em;border-radius:12px;background:#fff;border:1.5px solid var(--filo);font:600 clamp(13px,.9vw,16px)/1 var(--fd);color:var(--blu);transition:border-color .2s,transform .15s}
+.nk-tool svg{width:1.15em;height:1.15em}
+.nk-tool:hover{border-color:var(--blu);transform:translateY(-2px)}
+.nk-banco{width:100%;max-width:min(880px,98%);perspective:1400px;flex:none}
+.nk-kb{transform:rotateX(18deg);transform-origin:center top;display:flex;flex-direction:column;gap:.6vh;padding:1.1vh 1.3vh;border-radius:1.8vh;background:linear-gradient(#f5f6f8,#d5d7dc);box-shadow:0 30px 42px rgba(11,42,102,.3),inset 0 2px 4px rgba(255,255,255,.6)}
+.nk-row{display:flex;gap:.6vh;height:4.6vh}
+.nk-row.f{height:3.4vh;margin-bottom:.3vh}
+.nk-key{flex:1;position:relative;display:flex;flex-direction:column;align-items:center;justify-content:center;min-width:0;background:linear-gradient(#fff,#eceef1);border:1px solid #c6c8ce;border-bottom-width:3px;border-radius:.9vh;color:#1D1D1F;cursor:pointer;font:600 1.7vh/1 var(--fd);transition:transform .05s,background .1s,box-shadow .15s;touch-action:manipulation}
+.nk-key:hover{background:linear-gradient(#fff,#e4e6ea)}
+.nk-key:active,.nk-key.press{transform:translateY(1px);border-bottom-width:1px}
+.nk-key.spento{cursor:default;color:#8b8d93}
+.nk-key.armed{background:linear-gradient(var(--blu3),var(--blu));color:#fff;border-color:var(--blu2)}
+.nk-key.armed .nk-sub,.nk-key.armed .nk-word{color:rgba(255,255,255,.85)}
+.nk-key.hint{z-index:2;box-shadow:0 0 0 3px var(--oro),0 0 18px rgba(201,154,30,.7);animation:nkHint .8s ease-in-out infinite}
+@keyframes nkHint{50%{box-shadow:0 0 0 5px var(--oro),0 0 26px rgba(201,154,30,.85)}}
+.nk-key.ok{background:linear-gradient(#5FBF85,var(--verde));color:#fff;border-color:#1F5A36}
+.nk-key.ok .nk-sub{color:rgba(255,255,255,.9)}
+.nk-mn{font-size:1.9vh}
+.nk-sub{position:absolute;top:.35vh;right:.55vh;font:700 1.4vh/1 var(--fd);color:#5F6168}
+.nk-lbl{font-size:1.15vh}
+.nk-ico{display:grid;place-items:center}
+.nk-ico svg{width:1.9vh;height:1.9vh}
+.nk-row.f .nk-ico svg{width:1.4vh;height:1.4vh}
+.nk-f{margin-top:.15vh;font:500 .85vh/1 var(--f);color:#8b8d93}
+.nk-word{margin-top:.25vh;font:600 .9vh/1 var(--f);color:#8b8d93;white-space:nowrap}
+.nk-key.al-s{align-items:flex-start;padding-left:1vh}
+.nk-key.al-e{align-items:flex-end;padding-right:1vh}
+.nk-touch{width:2vh;height:2vh;border-radius:50%;box-shadow:inset 0 0 0 1.5px #c6c8ce}
+.nk-frecce{flex:1.7;display:flex;flex-direction:column;gap:2px}
+.nk-fr{display:flex;gap:2px;flex:1}
+.nk-arr{flex:1;display:grid;place-items:center;background:linear-gradient(#fff,#eceef1);border:1px solid #c6c8ce;border-bottom-width:2px;border-radius:.6vh;color:#6E6E73}
+.nk-arr svg{width:1.2vh;height:1.2vh}
+.nk-arr.vuoto{visibility:hidden}
+.nk-elenco{display:flex;flex-wrap:wrap;gap:6px}
+.nk-s{min-width:2em;height:2em;display:grid;place-items:center;border-radius:9px;background:#fff;border:1.5px solid var(--filo);font:700 clamp(16px,1.15vw,21px)/1 var(--f);color:var(--blu)}
+.nk-s.ok{background:var(--verde-t);border-color:var(--verde);color:var(--verde)}
+.nk-s.no{background:var(--ambra-t);border-color:var(--ambra);color:var(--ambra2)}
+.nk-st{display:flex;align-items:baseline;gap:.5vw}
+.nk-st b{font:700 clamp(30px,2.4vw,46px)/1 var(--fd);color:var(--oro)}
+.nk-st span{font:600 clamp(13px,.9vw,16px) var(--fd);color:var(--testo2)}
+.nk-st.piccolo{margin-top:.8vh}
+.nk-st.piccolo b{font-size:clamp(20px,1.5vw,28px);color:var(--testo2)}
+
 /* ---------- pannello docente ---------- */
 .mod{position:fixed;inset:0;z-index:80;display:none;place-items:center;background:rgba(11,30,70,.45)}
 .mod.on{display:grid}
@@ -589,6 +683,7 @@ h1,h2,h3,h4{font-weight:inherit}
     <span class="gr"><span class="cap">←</span><span class="cap">→</span> scegli</span>
     <span class="gr"><span class="cap">INVIO</span> entra</span>
     <button class="voce-tog" id="homeVoce" tabindex="-1"></button>
+    <button class="voce-tog" id="homeNinja" tabindex="-1"></button>
   </footer>
   <button class="btn-docente" id="btnDocente" tabindex="-1"></button>
 </section>
@@ -598,6 +693,7 @@ h1,h2,h3,h4{font-weight:inherit}
   <header class="p-testa">
     <img class="p-fig" id="copPercorso" alt="">
     <div><p class="occhiello">Allenamento · uguale per tutte le casate</p><h1 class="h-tit piccolo">Il percorso</h1><p class="h-sub">Sette tappe. La regola l'ha spiegata la maestra: qui ci si allena, tanto.</p></div>
+    <button class="indietro" id="pNinja" tabindex="-1"></button>
     <button class="indietro" id="pIndietro" tabindex="-1"></button>
   </header>
   <div class="tappe" id="tappe"></div>
@@ -668,6 +764,27 @@ h1,h2,h3,h4{font-weight:inherit}
       <div class="guida-piede"><img class="guida-fig" id="guidaFig" alt=""><button class="avanti-g" id="avantiG" tabindex="-1"></button></div>
     </div>
   </aside>
+</section>
+
+<!-- ============ RICREAZIONE: il ninja dei segni (iMac + Magic Keyboard, come Mac Ninja) ============ -->
+<section id="ninja" class="screen">
+  <header class="barra">
+    <div class="b-sx"><div class="tok gruppo" data-ico="tastiera"></div><div class="b-chi"><small>Ricreazione</small><b>per tutti</b></div></div>
+    <div class="b-centro"><div class="b-tit"><span class="tn">Il ninja dei segni</span><span id="nkTit"></span></div></div>
+    <div class="b-dx"><button class="ibtn" id="nVoce" tabindex="-1" aria-label="Lettura a voce alta"></button><button class="ibtn" id="nSuono" tabindex="-1" aria-label="Suoni"></button><button class="ibtn" id="nCasa" tabindex="-1" aria-label="Esci dalla ricreazione"></button></div>
+  </header>
+  <aside class="zona sx">
+    <div class="pan"><div class="pan-tit">I segni</div><div class="nk-elenco" id="nkSegni"></div><p class="lt-nota">verde: trovato · ambra: da ripassare</p></div>
+    <div class="pan"><div class="pan-tit">Stelle</div><div class="nk-st"><b id="nkSxIncassate">0</b><span>incassate</span></div><div class="nk-st piccolo"><b id="nkSxRecord">0</b><span>record di oggi</span></div></div>
+    <div class="pan comandi"><div class="pan-tit">Come si gioca</div><span class="cap" data-ico="mano"></span><span>clicca i tasti sulla tastiera qui sotto</span><span class="cap">maiusc</span><span>si accende: poi clicca il tasto</span><span class="cap">? !</span><span>oppure premili sulla tua tastiera</span><span class="cap">I</span><span>incassa il bottino</span><span class="cap">INVIO</span><span>continua e rischia</span></div>
+  </aside>
+  <main class="nk-scena">
+    <div class="imac" id="nkMac"><svg class="imac-svg" viewBox="0 0 800 640" role="img" aria-label="iMac con la domanda sullo schermo"><defs><linearGradient id="alu" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#fbfbfc"/><stop offset=".5" stop-color="#e5e6ea"/><stop offset="1" stop-color="#c9cace"/></linearGradient><linearGradient id="alu2" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#e9eaee"/><stop offset="1" stop-color="#bfc1c6"/></linearGradient></defs><ellipse cx="400" cy="614" rx="182" ry="16" fill="rgba(11,42,102,.16)"/><path d="M352 470 C 342 528 326 578 318 602 L 482 602 C 474 578 458 528 448 470 Z" fill="url(#alu2)" stroke="#b4b6bb" stroke-width="1"/><rect x="314" y="598" width="172" height="12" rx="6" fill="#c6c8cc" stroke="#adafb4" stroke-width="1"/><rect x="70" y="16" width="660" height="476" rx="24" fill="url(#alu)" stroke="#c2c3c8" stroke-width="1.5"/><rect x="86" y="30" width="628" height="388" rx="9" fill="#0b0b0f"/><rect x="98" y="42" width="604" height="364" rx="4" fill="#111018"/></svg><div class="nk-box"><div class="nk-menubar"><span>Ricreazione · <b>il ninja dei segni</b></span><span class="nk-mb-dx"><span>Bottino <b id="nkBottino">0</b></span><span>Incassate <b id="nkIncassate">0</b></span><span class="lvl" id="nkConta">0/12</span></span></div><div class="nk-prog"><i id="nkProg"></i></div><div class="nk-schermo" id="nkSchermo"></div></div></div>
+    <div class="nk-attrezzi"><button class="nk-tool" id="nkIndizio" tabindex="-1"></button><button class="nk-tool" id="nkPulisci" tabindex="-1"></button><button class="nk-tool" id="nkEsci" tabindex="-1"></button></div>
+    <div class="nk-banco"><div class="nk-kb" id="nkKb"></div></div>
+    <div class="nk-invio" id="nkInvio"></div>
+  </main>
+  <aside class="zona dx"><div class="guida"><div class="parla" id="nkParla"></div><div class="guida-piede"><img class="guida-fig" id="nkFig" alt=""></div></div></aside>
 </section>
 
 <!-- ============ FINE SFIDA ============ -->
@@ -1839,6 +1956,248 @@ function frame(ts) { const dt = Math.min(.05, (ts - tPrec) / 1000 || 0); tPrec =
 
 
 /* =====================================================================
+   RICREAZIONE — IL NINJA DEI SEGNI (come Mac Ninja: iMac + Magic Keyboard in prospettiva)
+   Sullo schermo dell'iMac compare un segno (un personaggio con gli occhi), poi il suo nome,
+   poi una frase da completare. Si trova la combinazione cliccando i tasti della tastiera
+   disegnata (maiusc / option si "armano"), oppure premendola sulla tastiera vera.
+   Meccanica di Mac Ninja, "incassa o continua": ogni risposta giusta di fila vale di più
+   (10, 20, 30…) ma va nel bottino; un errore fa perdere il bottino non incassato.
+   La decisione è quando fermarsi. Fuori dalla classifica: le stelle restano nella sessione.
+   ===================================================================== */
+const NINJA_N = 12;   // domande per partita (circa 2-3 minuti)
+const NINJA = [
+  { s: '.', nome: 'il punto', combo: ['.'], frasi: ['Oggi piove▢', 'Il gatto dorme▢'] },
+  { s: ',', nome: 'la virgola', combo: [','], frasi: ['Luca▢ vieni qui!', 'Mele▢ pere e banane.'] },
+  { s: ';', nome: 'il punto e virgola', combo: ['Shift', ','], frasi: ['Piove forte▢ restiamo a casa.'] },
+  { s: ':', nome: 'i due punti', combo: ['Shift', '.'], frasi: ['La mamma dice▢ "A tavola!"', 'Servono tre cose▢ colla, forbici e carta.'] },
+  { s: '?', nome: 'il punto di domanda', combo: ['Shift', "'"], frasi: ['Dove vai▢', 'Chi ha vinto▢'] },
+  { s: '!', nome: 'il punto esclamativo', combo: ['Shift', '1'], frasi: ['Che bello▢', 'Aiuto▢'] },
+  { s: '"', nome: 'le virgolette', combo: ['Shift', '2'], frasi: ['Anna dice: ▢Ciao!"', 'Il cartello dice: "Vietato entrare.▢'] },
+  { s: "'", nome: "l'apostrofo", combo: ["'"], frasi: ['l▢albero', 'un po▢ di pane'] },
+  { s: '(', nome: 'la parentesi che apre', combo: ['Shift', '8'], frasi: ['Pepe ▢il mio gatto) dorme.'] },
+  { s: ')', nome: 'la parentesi che chiude', combo: ['Shift', '9'], frasi: ['Pepe (il mio gatto▢ dorme.'] },
+  { s: '…', nome: 'i puntini', combo: ['Opt', ','], frasi: ['Apro la porta e▢'] },
+];
+// dove stanno gli occhi sul segno (frazioni del riquadro del segno disegnato)
+const OCCHI = { '.': [.5, .5], ',': [.55, .26], ';': [.5, .14], ':': [.5, .14], '?': [.5, .13], '!': [.5, .12], '"': [.22, .3], "'": [.5, .3], '(': [.3, .5], ')': [.7, .5], '…': [.5, .5] };
+
+/* ---------- la Magic Keyboard come in Mac Ninja: un modello dati, non cento div ---------- */
+const NK = [
+  { row: 'f', keys: [{ id: 'Esc', lbl: 'esc', flex: 1.6, al: 'e' }, ...FKEYS.map(([c, ico]) => ({ id: c, icon: ico, sub: c })), { id: 'TouchID', touch: true, flex: 1 }] },
+  { keys: [{ id: '\\', mn: '\\', sub: '|' }, { id: '1', mn: '1', sub: '!' }, { id: '2', mn: '2', sub: '"' }, { id: '3', mn: '3', sub: '£' }, { id: '4', mn: '4', sub: '$' }, { id: '5', mn: '5', sub: '%' }, { id: '6', mn: '6', sub: '&' }, { id: '7', mn: '7', sub: '/' }, { id: '8', mn: '8', sub: '(' }, { id: '9', mn: '9', sub: ')' }, { id: '0', mn: '0', sub: '=' }, { id: "'", mn: "'", sub: '?' }, { id: 'ì', mn: 'ì', sub: '^' }, { id: 'Del', icon: 'delete', flex: 1.7, al: 'e' }] },
+  { keys: [{ id: 'Tab', icon: 'tab', word: 'tab', flex: 1.6, al: 's' }, ...'QWERTYUIOP'.split('').map(l => ({ id: l, mn: l })), { id: 'è', mn: 'è', sub: 'é' }, { id: '+', mn: '+', sub: '*' }, { spacer: .9 }] },
+  { keys: [{ id: 'Caps', icon: 'caps', word: 'bloc maiusc', flex: 1.9, al: 's' }, ...'ASDFGHJKL'.split('').map(l => ({ id: l, mn: l })), { id: 'ò', mn: 'ò', sub: 'ç' }, { id: 'à', mn: 'à', sub: '°' }, { id: 'ù', mn: 'ù', sub: '§' }, { id: 'Return', icon: 'invio', word: 'invio', flex: 1.6, al: 'e' }] },
+  { keys: [{ id: 'Shift', icon: 'shift', word: 'maiusc', flex: 1.3, al: 's' }, { id: '<', mn: '<', sub: '>' }, ...'ZXCVBNM'.split('').map(l => ({ id: l, mn: l })), { id: ',', mn: ',', sub: ';' }, { id: '.', mn: '.', sub: ':' }, { id: '-', mn: '-', sub: '_' }, { id: 'Shift', icon: 'shift', word: 'maiusc', flex: 2.9, al: 'e' }] },
+  { keys: [{ id: 'Fn', icon: 'globo', word: 'fn', flex: 1 }, { id: 'Ctrl', icon: 'control', word: 'control', flex: 1.1 }, { id: 'Opt', icon: 'option', word: 'option', flex: 1.1 }, { id: 'Cmd', icon: 'command', word: 'command', flex: 1.4 }, { id: 'Space', flex: 5 }, { id: 'Cmd', icon: 'command', word: 'command', flex: 1.4 }, { id: 'Opt', icon: 'option', word: 'option', flex: 1.1 }, { arrows: true }] },
+];
+const NK_SPENTI = new Set(['Esc', 'TouchID', 'Del', 'Tab', 'Caps', 'Return', 'Fn', 'Ctrl', 'Cmd', 'Space', 'Su', 'Giu', 'Sinistra', 'Destra', ...FKEYS.map(f => f[0])]);   // non servono: un clic non arma niente
+// dalla tastiera vera (e.code) al tasto disegnato
+const NK_CODE = { Backquote: '<', IntlBackslash: '\\', Minus: "'", Equal: 'ì', BracketLeft: 'è', BracketRight: '+', Semicolon: 'ò', Quote: 'à', Backslash: 'ù', Comma: ',', Period: '.', Slash: '-', ShiftLeft: 'Shift', ShiftRight: 'Shift', AltLeft: 'Opt', AltRight: 'Opt', Space: 'Space', Enter: 'Return', Backspace: 'Del', Tab: 'Tab', CapsLock: 'Caps', MetaLeft: 'Cmd', MetaRight: 'Cmd', ControlLeft: 'Ctrl', Escape: 'Esc' };
+const nkId = code => NK_CODE[code] || (/^Digit\d$/.test(code) ? code.slice(5) : /^Key[A-Z]$/.test(code) ? code.slice(3) : null);
+const nkEsc = s => String(s).replace(/"/g, '&quot;').replace(/</g, '&lt;');
+function costruisciNinjaKb() {
+  const box = $('#nkKb'); if (box.childElementCount) return;
+  const tasto = k => {
+    if (k.spacer) return `<div style="flex:${k.spacer}"></div>`;
+    if (k.arrows) return `<div class="nk-frecce"><div class="nk-fr"><div class="nk-arr vuoto"></div><div class="nk-arr" data-k="Su">${KICO.su}</div><div class="nk-arr vuoto"></div></div><div class="nk-fr"><div class="nk-arr" data-k="Sinistra">${KICO.sinistra}</div><div class="nk-arr" data-k="Giu">${KICO.giu}</div><div class="nk-arr" data-k="Destra">${KICO.destra}</div></div></div>`;
+    let dentro = '';
+    if (k.touch) dentro = '<span class="nk-touch"></span>';
+    else if (k.icon && k.sub) dentro = `<span class="nk-ico">${KICO[k.icon]}</span><span class="nk-f">${k.sub}</span>`;
+    else if (k.icon) dentro = `<span class="nk-ico">${KICO[k.icon]}</span>`;
+    else if (k.mn) dentro = `${k.sub ? `<span class="nk-sub">${nkEsc(k.sub)}</span>` : ''}<span class="nk-mn">${nkEsc(k.mn)}</span>`;
+    else if (k.lbl) dentro = `<span class="nk-lbl">${k.lbl}</span>`;
+    if (k.word) dentro += `<span class="nk-word">${k.word}</span>`;
+    return `<div class="nk-key${k.al === 's' ? ' al-s' : k.al === 'e' ? ' al-e' : ''}${NK_SPENTI.has(k.id) ? ' spento' : ''}" style="flex:${k.flex || 1}" data-k="${nkEsc(k.id)}">${dentro}</div>`;
+  };
+  box.innerHTML = NK.map(r => `<div class="nk-row${r.row === 'f' ? ' f' : ''}">${r.keys.map(tasto).join('')}</div>`).join('');
+  box.addEventListener('click', e => { const t = e.target.closest('[data-k]'); if (t) ninjaPremi(t.dataset.k); });
+}
+const nkEl = id => [...document.querySelectorAll(`#nkKb [data-k="${nkEsc(id)}"]`)];
+const comboNinja = c => c.map(k => k === 'Shift' ? `<span class="nk-chip">${KICO.shift}maiusc</span>` : k === 'Opt' ? `<span class="nk-chip">${KICO.option}option</span>` : `<span class="nk-chip">${nkEsc(k)}</span>`).join('<span class="nk-piu">+</span>');
+
+/* ---------- il segno-personaggio: il segno grande e colorato, con gli occhi ----------
+   Disegnato su un canvas: le misure vere dell'inchiostro (actualBoundingBox) dicono dove
+   sta il segno, così gli occhi finiscono sempre sul segno (sulla testa del punto di domanda,
+   sul pallino della virgola, sul primo trattino delle virgolette…). */
+const COLORI_SEGNI = { '.': '#FFD24A', ',': '#7FD9A2', ';': '#8FB8FF', ':': '#FFB067', '?': '#D3B0FF', '!': '#FFD24A', '"': '#5FD3E0', "'": '#7FD9A2', '(': '#FFB067', ')': '#FFB067', '…': '#8FB8FF' };
+const personaggio = (s, cls = '') => `<canvas class="nk-pers ${cls}" data-s="${s === '"' ? '&quot;' : s}"></canvas>`;
+function disegnaPersonaggio(cv) {
+  const ch = cv.dataset.s, dpr = Math.min(2, devicePixelRatio || 1), W = cv.clientWidth || 120, H = cv.clientHeight || 120;
+  cv.width = Math.round(W * dpr); cv.height = Math.round(H * dpr);
+  const x = cv.getContext('2d'); x.setTransform(dpr, 0, 0, dpr, 0, 0); x.clearRect(0, 0, W, H);
+  const font = fs => `700 ${fs}px Fredoka, "Atkinson Hyperlegible", sans-serif`;
+  let fs = H * .9; x.font = font(fs);
+  let m = x.measureText(ch);
+  const inkW = m.actualBoundingBoxLeft + m.actualBoundingBoxRight, inkH = m.actualBoundingBoxAscent + m.actualBoundingBoxDescent;
+  fs *= Math.min(W * .78 / inkW, H * .74 / inkH, 1.25); x.font = font(fs); m = x.measureText(ch);   // il punto diventa una palla, il resto entra nel riquadro
+  const L0 = m.actualBoundingBoxLeft, R0 = m.actualBoundingBoxRight, A = m.actualBoundingBoxAscent, D = m.actualBoundingBoxDescent;
+  const ox = W / 2 - (R0 - L0) / 2, base = H / 2 + (A - D) / 2;
+  x.fillStyle = COLORI_SEGNI[ch] || '#FFD24A';
+  x.shadowColor = 'rgba(0,0,0,.25)'; x.shadowOffsetY = H * .02; x.shadowBlur = H * .04;
+  x.fillText(ch, ox, base);
+  x.shadowColor = 'transparent';
+  const L = ox - L0, R = ox + R0, T = base - A, B = base + D, [fx, fy] = OCCHI[ch] || [.5, .2];
+  const ex = L + (R - L) * fx, ey = T + (B - T) * fy, r = clamp(H * .075, 4.5, 15);
+  [-1, 1].forEach(d => {   // occhi grandi e tondi: bianchi, pupilla blu che guarda in su, un riflesso
+    const cx = ex + d * r * 1.08;
+    x.beginPath(); x.arc(cx, ey, r, 0, 7); x.fillStyle = '#fff'; x.fill(); x.lineWidth = Math.max(1.2, r * .16); x.strokeStyle = '#0B2A66'; x.stroke();
+    x.beginPath(); x.arc(cx + r * .12, ey - r * .1, r * .52, 0, 7); x.fillStyle = '#0B2A66'; x.fill();
+    x.beginPath(); x.arc(cx + r * .3, ey - r * .3, r * .17, 0, 7); x.fillStyle = '#fff'; x.fill();
+  });
+}
+function piazzaOcchi() { document.querySelectorAll('#nkSchermo canvas.nk-pers').forEach(disegnaPersonaggio); }
+
+/* ---------- partita ---------- */
+const N = { coda: [], i: 0, armati: [], bottino: 0, catena: 0, incassate: 0, miglior: 0, bloccato: false, decide: false, indizio: false, sbagli: {}, giusti: new Set(), da: 'home', t: 0 };
+function apriNinja(da = 'home') {
+  pulisci(); costruisciNinjaKb();
+  Object.assign(G, { modo: 'ninja', stato: 'gioco' });
+  N.da = da;
+  $('#nkFig').src = IMG_DATA.copertina;
+  mostraSchermo('ninja');
+  ninjaIntro();
+}
+function ninjaIntro() {
+  N.bloccato = true; N.decide = false; clearTimeout(N.t);
+  aggiornaNinjaSx();
+  $('#nkSchermo').innerHTML = `<div class="nk-intro"><div class="nk-segni">${NINJA.slice(0, 6).map(t => personaggio(t.s)).join('')}</div><h3>Il ninja dei segni</h3><p>Trova i tasti dei segni: clicca la combinazione sulla tastiera qui sotto, oppure premila sulla tua tastiera.</p><p class="nk-reg">Ogni risposta giusta di fila vale di più, ma va nel <b>bottino</b>: <b>incassa</b> prima di sbagliare!</p></div>`;
+  $('#nkTit').textContent = 'Ricreazione'; ninjaHud();
+  requestAnimationFrame(piazzaOcchi); setTimeout(piazzaOcchi, 200);
+  parla('Ricreazione! Trova i tasti dei segni. Più risposte giuste di fila fai, più stelle vale il bottino. Incassa prima di sbagliare!', true, '#nkParla', '#nkFig');
+  mostraInvio(ninjaVia, '#nkInvio');
+}
+function ninjaVia() {
+  const r = mulberry32(cyrb53(semeNuovo('ninja')));
+  // 4 segni da riconoscere, 4 nomi, 4 frasi; prima quelli non ancora indovinati in questa sessione
+  const nuovi = shuffle(NINJA.filter(t => !N.giusti.has(t.s)), r), noti = shuffle(NINJA.filter(t => N.giusti.has(t.s)), r);
+  const lista = [...nuovi, ...noti, ...shuffle(NINJA, r)].slice(0, NINJA_N);
+  N.coda = lista.map((t, k) => ({ t, tipo: k < 4 ? 'segno' : k < 8 ? 'nome' : 'frase', frase: pick(t.frasi, r) }));
+  Object.assign(N, { i: 0, bottino: 0, catena: 0, incassate: 0, miglior: 0, sbagli: {} });
+  SFX.play('via'); ninjaChiedi();
+}
+function ninjaChiedi() {
+  clearTimeout(N.t);
+  if (G.schermo !== 'ninja') return;
+  if (N.i >= N.coda.length) { ninjaFine(); return; }
+  Object.assign(N, { bloccato: false, decide: false, indizio: false, armati: [] });
+  nkSpegni(); mostraInvio(null);
+  const q = N.coda[N.i], t = q.t;
+  const chiedi = { segno: 'Trova i tasti di questo segno', nome: `Trova i tasti di <b>${t.nome}</b>`, frase: 'Quale segno manca? Trova i suoi tasti' }[q.tipo];
+  const centro = q.tipo === 'segno' ? personaggio(t.s) : q.tipo === 'nome' ? `<div class="nk-nome">${maiuscola(t.nome)}</div>` : `<div class="nk-frase">${nkEsc(q.frase).replace('▢', '<i class="nk-buco"></i>')}</div>`;
+  $('#nkSchermo').innerHTML = `<div class="nk-chiedi">${chiedi}</div><div class="nk-centro">${centro}</div><div class="nk-live" id="nkLive"></div><div class="nk-dec" id="nkDec"></div><div class="nk-hint">Clicca i tasti qui sotto oppure premili sulla tua tastiera</div>`;
+  $('#nkTit').textContent = { segno: 'Il segno', nome: 'Il nome', frase: 'La frase' }[q.tipo];
+  ninjaHud();
+  if (q.tipo === 'segno') { requestAnimationFrame(piazzaOcchi); setTimeout(piazzaOcchi, 120); }
+  if (VOCE.on) VOCE.di(q.tipo === 'nome' ? `Trova i tasti di ${t.nome}.` : q.tipo === 'frase' ? 'Quale segno manca?' : 'Trova i tasti di questo segno.', { chi: 'ninja', subito: true });
+}
+function ninjaHud() {
+  $('#nkBottino').textContent = N.bottino; $('#nkIncassate').textContent = N.incassate;
+  const tot = N.coda.length || NINJA_N; $('#nkConta').textContent = `${Math.min(N.i + 1, tot)}/${tot}`;
+  $('#nkProg').style.width = ((N.coda.length ? N.i / N.coda.length : 0) * 100) + '%';
+  $('#nkSxIncassate').textContent = N.incassate; $('#nkSxRecord').textContent = SESSIONE.ninjaRecord || 0;
+}
+function aggiornaNinjaSx() {
+  $('#nkSegni').innerHTML = NINJA.map(t => `<span class="nk-s ${N.giusti.has(t.s) ? 'ok' : N.sbagli[t.s] ? 'no' : ''}" title="${t.nome}">${t.s === '"' ? '&quot;' : t.s}</span>`).join('');
+}
+function nkSpegni(...cls) { document.querySelectorAll('#nkKb .armed, #nkKb .hint, #nkKb .ok').forEach(e => e.classList.remove(...(cls.length ? cls : ['armed', 'hint', 'ok']))); }
+function ninjaMostraArmati() {
+  document.querySelectorAll('#nkKb [data-k]').forEach(e => e.classList.toggle('armed', N.armati.includes(e.dataset.k)));
+  const l = $('#nkLive'); if (l) l.innerHTML = N.armati.length ? comboNinja(N.armati) : '';
+}
+/* un clic su un tasto disegnato: lo arma (o lo disarma); con abbastanza tasti si controlla */
+function ninjaPremi(id) {
+  SFX.ctx();
+  if (G.schermo !== 'ninja' || N.bloccato || N.decide || NK_SPENTI.has(id)) return;
+  const k = N.armati.indexOf(id);
+  if (k >= 0) N.armati.splice(k, 1); else N.armati.push(id);
+  SFX.play('tasto'); ninjaMostraArmati();
+  const c = N.coda[N.i].t.combo;
+  if (N.armati.length === c.length) ninjaControlla(c.every(x => N.armati.includes(x)));
+}
+/* dalla tastiera vera: conta il carattere scritto (maiusc e option si vedono sulla tastiera disegnata) */
+function ninjaTasto(e) {
+  const id = nkId(e.code);
+  if (id) nkEl(id).forEach(x => { x.classList.add('press'); setTimeout(() => x.classList.remove('press'), 180); });
+  if (e.key === 'Escape') { ninjaEsci(); return; }
+  if (N.decide) { if (e.key === 'Enter') ninjaContinua(); else if (/^[iI]$/.test(e.key)) ninjaIncassa(); return; }
+  if (e.key === 'Enter') { if (G.invioFn) premiInvio(); return; }
+  if (N.bloccato || e.metaKey || e.ctrlKey || e.key.length !== 1) return;
+  const ch = NORMALIZZA[e.key] || e.key;
+  if (!ch.trim() || /[\p{L}\p{N}]/u.test(ch)) return;   // spazio, lettere e numeri: niente
+  const q = N.coda[N.i];
+  N.armati = [...(e.shiftKey ? ['Shift'] : []), ...(e.altKey ? ['Opt'] : []), ...(id && id !== 'Shift' && id !== 'Opt' ? [id] : [])];
+  ninjaMostraArmati();
+  ninjaControlla(ch === q.t.s);
+}
+function ninjaControlla(giusto) {
+  const q = N.coda[N.i], t = q.t;
+  N.bloccato = true;
+  const s = $('#nkSchermo');
+  if (giusto) {
+    N.giusti.add(t.s); delete N.sbagli[t.s];
+    if (N.indizio) { N.catena = 0; }
+    else { N.catena++; N.bottino += 10 * N.catena; }
+    N.miglior = Math.max(N.miglior, N.catena);
+    t.combo.forEach(k => nkEl(k).forEach(x => x.classList.add('ok')));
+    SFX.play('giusto'); flashNinja('ok');
+    if (q.tipo === 'frase') { const b = s.querySelector('.nk-buco'); if (b) { b.textContent = t.s; b.classList.add('pieno'); } }
+    N.i++;
+    const ultima = N.i >= N.coda.length;
+    if (N.indizio || !N.bottino) {   // con l'indizio la risposta vale zero: niente da incassare, si va avanti
+      s.querySelector('.nk-chiedi').innerHTML = N.indizio ? 'Giusto, con l\'indizio: vale zero' : 'Giusto!';
+      N.t = setTimeout(ninjaChiedi, 1100); ninjaHud(); aggiornaNinjaSx(); return;
+    }
+    N.decide = true;
+    s.querySelector('.nk-chiedi').innerHTML = `Giusto! <b>+${10 * N.catena}</b> nel bottino`;
+    $('#nkDec').innerHTML = `<button class="nk-btn inc" id="nkInc" tabindex="-1">${ICO.ok}incassa ${N.bottino}<span class="cap">I</span></button>${ultima ? '' : `<button class="nk-btn cont" id="nkCont" tabindex="-1">${ICO.avanti}continua · la prossima vale ${10 * (N.catena + 1)}<span class="cap">INVIO</span></button>`}`;
+    $('#nkInc').onclick = ninjaIncassa; if (!ultima) $('#nkCont').onclick = ninjaContinua;
+    parla(ultima ? `Ultima domanda: incassa il bottino!` : `Bottino: <b>${N.bottino}</b>. Incassi o rischi? La prossima vale <b>${10 * (N.catena + 1)}</b>.`, false, '#nkParla', '#nkFig');
+  } else {
+    N.sbagli[t.s] = (N.sbagli[t.s] || 0) + 1;
+    const perso = N.bottino; N.bottino = 0; N.catena = 0;
+    SFX.play('nonAncora'); flashNinja('no');
+    nkSpegni('armed');
+    t.combo.forEach(k => nkEl(k).forEach(x => x.classList.add('hint')));
+    s.querySelector('.nk-chiedi').innerHTML = perso ? `Bottino perso: ${perso}` : 'Non ancora';
+    $('#nkLive').innerHTML = `<span class="nk-era">Era</span>${comboNinja(t.combo)}${q.tipo !== 'segno' ? `<span class="nk-era">: ${t.s === '"' ? '&quot;' : t.s}</span>` : ''}`;
+    parla(`${maiuscola(t.nome)}: ${t.combo.length > 1 ? `tieni premuto <b>${t.combo[0] === 'Shift' ? 'maiusc' : 'option'}</b> e premi` : 'premi'} il tasto che si illumina.`, false, '#nkParla', '#nkFig');
+    N.i++;
+    N.t = setTimeout(() => { nkSpegni(); ninjaChiedi(); }, 2300);
+  }
+  ninjaHud(); aggiornaNinjaSx();
+}
+function ninjaIncassa() {
+  if (!N.decide) return;
+  N.incassate += N.bottino; N.bottino = 0; N.catena = 0; N.decide = false;
+  SFX.play('scegli'); flashNinja('ok'); ninjaHud();
+  parla('Incassato! La catena riparte da 10.', false, '#nkParla', '#nkFig');
+  if (N.i >= N.coda.length) ninjaFine(); else ninjaChiedi();
+}
+function ninjaContinua() { if (!N.decide) return; N.decide = false; SFX.play('tick'); ninjaChiedi(); }
+function ninjaIndizio() {
+  if (N.bloccato || N.decide || G.schermo !== 'ninja' || !N.coda.length) return;
+  N.indizio = true;
+  N.coda[N.i].t.combo.forEach(k => nkEl(k).forEach(x => x.classList.add('hint')));
+  setTimeout(() => nkSpegni('hint'), 1600);
+  parla('Ecco i tasti. Con l\'indizio questa risposta vale zero e la catena riparte.', false, '#nkParla', '#nkFig');
+}
+function flashNinja(c) { const s = $('#nkSchermo').parentElement; s.classList.remove('flash-ok', 'flash-no'); void s.offsetWidth; s.classList.add('flash-' + c); }
+function ninjaFine() {
+  clearTimeout(N.t);
+  N.bloccato = true; N.decide = false;
+  const record = N.incassate > (SESSIONE.ninjaRecord || 0);
+  SESSIONE.ninjaRecord = Math.max(SESSIONE.ninjaRecord || 0, N.incassate);
+  const ripassa = Object.keys(N.sbagli);
+  SFX.play('lezione'); FX.coriandoli(90, COLORI_FESTA);
+  $('#nkTit').textContent = 'Fine';
+  $('#nkSchermo').innerHTML = `<div class="nk-fine"><div class="nk-chiedi">${record ? 'Nuovo record della sessione!' : 'Ricreazione finita'}</div><div class="nk-stelle"><b>${N.incassate}</b><span>stelle incassate</span></div><p>Catena più lunga: <b>${N.miglior}</b> di fila</p>${ripassa.length ? `<p class="nk-rip">Da ripassare: ${ripassa.map(s => `<i>${s === '"' ? '&quot;' : s}</i>`).join('')}</p>` : '<p class="nk-rip">Nessun segno sbagliato!</p>'}</div>`;
+  ninjaHud();
+  parla(`Hai incassato <b>${N.incassate}</b> stelle. Ancora una partita o torni ${N.da === 'percorso' ? 'al percorso' : "all'inizio"}?`, true, '#nkParla', '#nkFig');
+  mostraInvio(ninjaVia, '#nkInvio');
+}
+function ninjaEsci() { clearTimeout(N.t); N.bloccato = true; if (N.da === 'percorso') apriPercorso(); else tornaHome(); }
+
+/* =====================================================================
    STATO — SESSIONE vive finché la pagina è aperta (niente resta sul Mac);
    G è l'esercizio in corso.
    ===================================================================== */
@@ -2084,9 +2443,9 @@ function fineTappa() {
   const o = apriOverlay(`<div class="cov"><p class="cov-occh">Tappa ${G.n} completata</p><h2>${G.tappa.nome}</h2>
     <div class="tabella">${riga(ICO.ok, 'Segni giusti al primo colpo', `${s.primo}/${s.segni}`, s.segni ? s.primo / s.segni : 0)}${riga(ICO.lente, 'Aiuti usati', s.lenti)}</div>
     ${riguardaHtml(G.conf)}
-    <div class="scelte">${prossima ? `<button class="bsc oro focus" data-a="avanti" tabindex="-1">${ICO.avanti}${TAPPE[prossima].nome}</button>` : ''}<button class="bsc ${prossima ? '' : 'focus'}" data-a="percorso" tabindex="-1">il percorso<span class="cap">ESC</span></button></div></div>`);
+    <div class="scelte">${prossima ? `<button class="bsc oro focus" data-a="avanti" tabindex="-1">${ICO.avanti}${TAPPE[prossima].nome}</button>` : ''}<button class="bsc" data-a="ninja" tabindex="-1">${ICO.tastiera}ricreazione</button><button class="bsc ${prossima ? '' : 'focus'}" data-a="percorso" tabindex="-1">il percorso<span class="cap">ESC</span></button></div></div>`);
   const avanti = () => prossima ? iniziaTappa(prossima) : apriPercorso();
-  o.querySelectorAll('.bsc').forEach(b => b.onclick = () => { mostraInvio(null); b.dataset.a === 'avanti' ? avanti() : apriPercorso(); });
+  o.querySelectorAll('.bsc').forEach(b => b.onclick = () => { mostraInvio(null); b.dataset.a === 'avanti' ? avanti() : b.dataset.a === 'ninja' ? apriNinja('percorso') : apriPercorso(); });
   mostraInvio(avanti, '#pagina');
   FX.coriandoli(110, COLORI_FESTA);
 }
@@ -2213,9 +2572,9 @@ function fineTastiera() {
   const o = apriOverlayT(`<div class="cov"><p class="cov-occh">Tappa completata</p><h2>I segni sul Mac</h2>
     <div class="ricorda"><b>ricorda</b>I segni disegnati in alto sul tasto si scrivono tenendo premuto maiusc.</div>
     <div class="tabella">${riga(ICO.ok, 'Giusti al primo colpo', `${T.primo}/${T.tot}`, T.tot ? T.primo / T.tot : 0)}${riga(ICO.lente, 'Aiuti usati', T.aiuti)}</div>
-    <div class="scelte"><button class="bsc oro focus" data-a="avanti" tabindex="-1">${ICO.avanti}${TAPPE[1].nome}</button><button class="bsc" data-a="percorso" tabindex="-1">il percorso<span class="cap">ESC</span></button></div></div>`);
+    <div class="scelte"><button class="bsc oro focus" data-a="avanti" tabindex="-1">${ICO.avanti}${TAPPE[1].nome}</button><button class="bsc" data-a="ninja" tabindex="-1">${ICO.tastiera}ricreazione</button><button class="bsc" data-a="percorso" tabindex="-1">il percorso<span class="cap">ESC</span></button></div></div>`);
   const avanti = () => { nascondiOverlayT(); iniziaTappa(1); };
-  o.querySelectorAll('.bsc').forEach(b => b.onclick = () => { mostraInvio(null); b.dataset.a === 'avanti' ? avanti() : apriPercorso(); });
+  o.querySelectorAll('.bsc').forEach(b => b.onclick = () => { mostraInvio(null); b.dataset.a === 'avanti' ? avanti() : b.dataset.a === 'ninja' ? apriNinja('percorso') : apriPercorso(); });
   mostraInvio(avanti, '#tAlto');
   FX.coriandoli(110, COLORI_FESTA);
 }
@@ -2456,14 +2815,14 @@ function abbandona() {
 function tornaHome() { pulisci(); if (Classifica.partita) Classifica.chiudi(); G.stato = 'off'; G.modo = null; mostraSchermo('home'); aggiornaClassifica(); }
 function mostraSchermo(id) {
   G.schermo = id; VOCE.zitto(); mostraInvio(null);
-  ['home', 'percorso', 'casate', 'tastiera', 'gioco', 'fine'].forEach(s => $('#' + s).classList.toggle('on', s === id));
+  ['home', 'percorso', 'casate', 'tastiera', 'gioco', 'fine', 'ninja'].forEach(s => $('#' + s).classList.toggle('on', s === id));
   if (id !== 'tastiera') { T.coppie = []; disegnaLinee(); }
 }
 
 /* ---------- Voce e suoni: valgono per questa sessione (o dall'indirizzo: ?voce=1) ---------- */
 function aggiornaBottoni() {
-  ['#gSuono', '#tSuono'].forEach(s => { $(s).innerHTML = SFX.on ? ICO.suono : ICO.muto; $(s).classList.toggle('off', !SFX.on); });
-  ['#gVoce', '#tVoce'].forEach(s => { $(s).innerHTML = VOCE.on ? ICO.voce : ICO.voceNo; $(s).classList.toggle('off', !VOCE.on); $(s).style.display = VOCE.ok ? '' : 'none'; $(s).title = `Lettura a voce alta: ${VOCE.on ? 'sì' : 'no'}`; });
+  ['#gSuono', '#tSuono', '#nSuono'].forEach(s => { $(s).innerHTML = SFX.on ? ICO.suono : ICO.muto; $(s).classList.toggle('off', !SFX.on); });
+  ['#gVoce', '#tVoce', '#nVoce'].forEach(s => { $(s).innerHTML = VOCE.on ? ICO.voce : ICO.voceNo; $(s).classList.toggle('off', !VOCE.on); $(s).style.display = VOCE.ok ? '' : 'none'; $(s).title = `Lettura a voce alta: ${VOCE.on ? 'sì' : 'no'}`; });
   const h = $('#homeVoce'); h.innerHTML = `${VOCE.on ? ICO.voce : ICO.voceNo}lettura a voce alta<b>${VOCE.on ? 'sì' : 'no'}</b>`; h.classList.toggle('on', VOCE.on); h.classList.toggle('assente', !VOCE.ok);
 }
 function cambiaVoce() { VOCE.on = !VOCE.on; aggiornaBottoni(); if (VOCE.on) VOCE.di('Leggo io, ad alta voce.', { chi: 'prova' }); }
@@ -2499,7 +2858,7 @@ function apriDocente(tab = tabDocente) {
     const f = FORM, url = linkClasse(f);
     const scelta = (k, val, tit) => `<button class="mb ${String(f[k]) === String(val) ? 'on' : ''}" data-k="${k}" data-v="${val}" tabindex="-1">${tit}</button>`;
     B.innerHTML = `<p>Scegli e copia il link: è l'indirizzo da dare alla classe (sugli iMac non si salva niente).</p>
-      <h4>All'apertura</h4><div class="riga-b">${scelta('modo', '', 'la home')}${scelta('modo', 'allena', 'il percorso')}${scelta('modo', 'sfida', 'la scelta della casata')}</div>
+      <h4>All'apertura</h4><div class="riga-b">${scelta('modo', '', 'la home')}${scelta('modo', 'allena', 'il percorso')}${scelta('modo', 'sfida', 'la scelta della casata')}${scelta('modo', 'ninja', 'la ricreazione')}</div>
       <h4>Durata della sfida</h4><div class="riga-b">${[5, 8, 10, 12].map(m => scelta('durata', m, m + ' minuti')).join('')}</div>
       <h4>Livello di partenza della sfida</h4><div class="riga-b">${LIVELLI.map((d, i) => scelta('livello', i + 1, `${i + 1} · ${d.nome}`)).join('')}</div>
       <h4>Testi uguali per tutti (modalità lezione)</h4><div class="riga-b"><input class="mi" id="mSeed" value="${f.seed || ''}" placeholder="es. 3A-lunedi" maxlength="24"><span class="mnota">vuoto = ognuno ha testi diversi</span></div>
@@ -2541,6 +2900,7 @@ document.addEventListener('keydown', e => {
   SFX.ctx();
   if ($('#modDocente').classList.contains('on')) { if (e.key === 'Escape') chiudiDocente(); return; }
   if (e.target && e.target.tagName === 'INPUT') return;
+  if (G.schermo === 'ninja') { if (e.key === ' ' || e.key === 'Enter' || FRECCE[e.key] || e.key === "'" || e.key === '/') e.preventDefault(); if (!e.repeat) ninjaTasto(e); return; }
   if (G.schermo === 'tastiera') { if (e.key === ' ' || e.key === 'Enter' || FRECCE[e.key]) e.preventDefault(); if (!e.repeat) tastoTastiera(e); return; }
   if (e.metaKey || e.ctrlKey) return;
   const k = FRECCE[e.key], invio = e.key === 'Enter', spazio = e.key === ' ', esc = e.key === 'Escape', canc = e.key === 'Backspace' || e.key === 'Delete';
@@ -2618,8 +2978,15 @@ async function avvio() {
   costruisciHome(); costruisciRighe('righeFine');
   Classifica.onCambio(aggiornaClassifica); aggiornaClassifica();
   aggiornaBottoni();
-  $('#gSuono').onclick = $('#tSuono').onclick = () => { SFX.on = !SFX.on; aggiornaBottoni(); };
-  $('#gVoce').onclick = $('#tVoce').onclick = $('#homeVoce').onclick = e => { e.stopPropagation(); cambiaVoce(); };
+  $('#gSuono').onclick = $('#tSuono').onclick = $('#nSuono').onclick = () => { SFX.on = !SFX.on; aggiornaBottoni(); };
+  $('#gVoce').onclick = $('#tVoce').onclick = $('#nVoce').onclick = $('#homeVoce').onclick = e => { e.stopPropagation(); cambiaVoce(); };
+  // ricreazione: il ninja dei segni
+  $('#nCasa').innerHTML = ICO.casa; $('#nCasa').onclick = () => ninjaEsci();
+  $('#nkIndizio').innerHTML = `${ICO.occhio}indizio`; $('#nkIndizio').onclick = () => ninjaIndizio();
+  $('#nkPulisci').innerHTML = `${ICO.cancella}pulisci`; $('#nkPulisci').onclick = () => { if (!N.bloccato && !N.decide) { N.armati = []; ninjaMostraArmati(); } };
+  $('#nkEsci').innerHTML = `${ICO.indietro}esci`; $('#nkEsci').onclick = () => ninjaEsci();
+  $('#homeNinja').innerHTML = `${ICO.tastiera}ricreazione: il ninja dei segni`; $('#homeNinja').onclick = () => apriNinja('home');
+  $('#pNinja').innerHTML = `${ICO.tastiera}ricreazione`; $('#pNinja').onclick = () => apriNinja('percorso');
   $('#gPausa').onclick = () => G.stato === 'pausa' ? confermaPausa(0) : mostraPausa();
   $('#gCasa').onclick = () => tornaHome();
   $('#tCasa').onclick = () => apriPercorso();
@@ -2647,7 +3014,7 @@ async function avvio() {
   $('#tAlto').addEventListener('scroll', () => disegnaLinee(), { passive: true });
   $('#pagina').addEventListener('scroll', () => posizionaInvio(), { passive: true });
   mostraSchermo('home');
-  if (IMP.modo === 'allena') apriPercorso(); else if (IMP.modo === 'sfida') apriCasate();
+  if (IMP.modo === 'allena') apriPercorso(); else if (IMP.modo === 'sfida') apriCasate(); else if (IMP.modo === 'ninja') apriNinja('home');
 }
 avvio();
 
